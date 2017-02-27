@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <router-link to="/">Fields</router-link>
-    <router-link to="/preview">Preview</router-link>
     <router-view></router-view>
-    <!-- <fields></fields> -->
-    <!-- <preview></preview> -->
   </div>
 </template>
 
