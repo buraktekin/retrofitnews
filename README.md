@@ -1,4 +1,4 @@
-# retrofitnews
+# Retrofitnews
 
 > Modernized view for HackerNews
 
