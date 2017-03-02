@@ -1,0 +1,48 @@
+#app > div > div > div > div.preview {
+  height: 80vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  color: #FFF !important;
+  box-shadow: 1px 1px 50px rgba(0, 0, 0, 0.5);
+  background-color: rgba(76, 31, 78, 0.9);
+}
+
+.preview ul {
+  left: 0;
+  width: 100%;
+  background: none;
+}
+
+.preview li {
+  color: #FFF;
+  width: 100%;
+  margin: 0;
+  text-align: left;
+  background: none;
+  list-style: none;
+  border-color: rgba(177, 177, 177, 0.1);
+  transition: .6s ease-in-out;
+}
+
+.preview li:hover {
+  background: rgba(26, 37, 47, 1);
+}
+
+a.btn.btn-copy {
+  opacity: 0;
+  margin: 0;
+  padding: 0 .5rem;
+}
+
+p[class~="spiderman"]:hover a.btn.btn-copy {
+  opacity: 1;
+}
+
+.card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 4;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 5;
+  }
+}

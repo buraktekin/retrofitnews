@@ -1,0 +1,84 @@
+.fields {
+  padding: 30px;
+  max-height: 80vh;
+  overflow: scroll;
+  border-radius: 5px;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+  background: rgba(255, 102, 0, 1);
+}
+.card {
+  margin: 5px auto;
+  min-height: 120px;
+  transition: .5s ease-in-out;
+  background: none;
+  border: 1px solid rgba(255, 102, 0, 0.8);
+}
+.card:hover {
+  color: #FFF;
+  cursor: pointer;
+  background: rgba(26, 37, 47, .9);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+.card-title {
+  width: 100%;
+  margin: auto 2px;
+  text-align: center;
+  font-weight: 700;
+  word-wrap: break-word;
+}
+.card-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.icon{
+  margin: 3px;
+}
+.selectedFields {
+  text-align: left;
+  width: 100%;
+  max-height: 75vh;
+  overflow: scroll;
+  margin: 10px 0 0 0;
+  padding: 0px;
+  float: left;
+  border: 1px dashed rgba(26, 37, 47, 1);
+  border-radius: 5px;
+}
+.selectedFields > ul > li.field {
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  transition: .3s ease-in-out;
+}
+.selectedFields > ul > li.field:hover{
+  cursor: crosshair;
+  color: #FFF;
+  background-color: rgba(76, 31, 78, 0.8);
+}
+.selectedFields > ul > li.field:hover > span {
+  color: #fff;
+}
+span.done{
+  width: 100%;
+  text-align: right;
+}
+span.done > a {
+  width: 100%;
+  margin: 5px auto;
+  border-radius: 5px;
+  min-width: 100px;
+  background: rgba(44, 62, 100, 1);
+  color: #FFF !important;
+}
+span.done > a:hover {
+  background: rgba(26, 37, 47, 1);
+  cursor: pointer;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}

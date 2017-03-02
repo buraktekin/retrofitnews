@@ -5,22 +5,38 @@
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'App'
+  }
 </script>
 
-<style>
+<style lang="scss">
+  $color: #fc6502;
+  body{
+    width: 100vw;
+    height: 100vh;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 20px;
+  }
+
+  .tooltip > .tooltip-inner {color: #42b983 !important;}
+
+  .text-muted {
+    color: $color !important;
   }
 
   h1, h2 {
     font-weight: normal;
+  }
+
+  h6 {
+    margin: 10px !important;
   }
 
   ul {
@@ -31,6 +47,10 @@ export default {
   li {
     display: inline-block;
     margin: 0 10px;
+  }
+
+  p{
+    width: 100%;
   }
 
   a, a:hover {
