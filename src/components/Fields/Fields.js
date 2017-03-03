@@ -4,10 +4,16 @@ export default {
   computed: {
     changeGrid: function() {
       if (this.selectedFields.length === 0) {
-        return "col-lg-12";
+        return {
+          'parent': "col-lg-12",
+          'child': "col-lg-2"
+        }
       }
       else {
-        return "col-lg-10";
+        return {
+          'parent': "col-lg-10",
+          'child': "col-lg-3"
+        }
       }
     }
   },

@@ -2,11 +2,11 @@
   <div class="container">
     <loading :loader="isLoading"></loading>
     <div class="row">
-      <div :class="changeGrid">
+      <div :class="'transitive ' + changeGrid.parent">
         <div class="fields" v-if="!isLoading">
           <h1>Please, indicate your interests...</h1>
           <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3" v-for="(f, index) in fields">
+            <div :class="'col-xs-12 col-sm-6 col-md-3 transitive ' + changeGrid.child" v-for="(f, index) in fields">
               <div class="card" @click="addToSelections(index)">
                 <div class="card-block">
                   <i v-bind:class="f.icon + ' fa-2x icon'" aria-hidden="true"></i>
