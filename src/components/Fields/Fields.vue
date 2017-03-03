@@ -2,7 +2,7 @@
   <div class="container">
     <loading :loader="isLoading"></loading>
     <div class="row">
-      <div class="col-lg-10">
+      <div :class="changeGrid">
         <div class="fields" v-if="!isLoading">
           <h1>Please, indicate your interests...</h1>
           <div class="row">
@@ -17,21 +17,21 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-2 offset-lg-0">
+      <div class="col-lg-2">
         <div class="row">
           <transition name="fade">
-            <div class="" v-if="selectedFields.length > 0">
+            <div v-if="selectedFields.length > 0">
               <div class="selectedFields">
                 <ul class="list-group">
                   <li class="text-center"><h6>Your Selections</h6></li>
                   <li class="field list-group-item" v-for="(item, index) in selectedFields" @click="removeFromSelection(index)">
                     <span style="float:left; width:90%;" class="small">{{ item.item.name }}</span>
-                    <span style="color:#f60;float:right; width:10%;" class="fa fa-times" onclick="addRow(this)"></span>
+                    <span style="color:#f60;float:right; width:10%;" class="fa fa-times"></span>
                   </li>
                 </ul>
               </div>
               <span class="done">
-                <a :class="'btn btn-default btn-sm btn-done'" @click="submitSelection()">Ready!</router-link>
+                <a :class="'btn btn-default btn-sm btn-done'" @click="submitSelection()">Ready!</a>
                </span>
             </div>
           </transition>

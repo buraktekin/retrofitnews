@@ -15,7 +15,7 @@
                 <p :id="'url' + index" class="spiderman small">
                   {{ i.url }}
                   <a class="btn btn-copy btn-text btn-xs" data-placement="right" :data-clipboard-target="'#url' + index" alt="Copy">
-                    <i class="fa fa-clipboard" alt="Copy to clipboard">
+                    <i class="fa fa-clipboard" alt="Copy to clipboard" />
                   </a>
                 </p>
                 <span>[ Score: {{ i.points }} ]</span> -

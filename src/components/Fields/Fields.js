@@ -1,12 +1,14 @@
 import Loading from "../Loading/Loading.vue"
 export default {
   name: "Fields",
-  data() {
-    return {
-      show: true,
-      isLoading: true,
-      fields: [],
-      selectedFields: []
+  computed: {
+    changeGrid: function() {
+      if (this.selectedFields.length === 0) {
+        return "col-lg-12";
+      }
+      else {
+        return "col-lg-10";
+      }
     }
   },
   components: { Loading },
@@ -34,6 +36,13 @@ export default {
     submitSelection() {
       this.$root.$data.data = this.selectedFields;
       this.$router.push('Preview');
+    }
+  },
+  data() {
+    return {
+      isLoading: true,
+      fields: [],
+      selectedFields: []
     }
   },
   created() {
