@@ -5,11 +5,19 @@ export default {
     return {
       isLoading: true,
       selectedFields: this.$root.$data,
-      results: []
+      results: [],
     }
   },
   components: { Loading },
   methods: {
+    trim: function(text, length) {
+      if(text.length > length) {
+        text = text.substr(0, length) + '...';
+        return text;
+      } else {
+        return text;
+      }
+    },
     conditions(i) {
       if((i.url === null) || (i.url === "")){
         return false;
@@ -26,15 +34,16 @@ export default {
         .then((res) => { return res.json() })
         .then((res) => {
           news.push(res);
+          console.log(res);
         })
       })
       this.results = news;
+      this.isLoading = false;
     }
   },
   created() {
     setTimeout(() => {
       this.fetchNews(this.selectedFields);
-      this.isLoading = false;
     }, 1000)
   }
 }

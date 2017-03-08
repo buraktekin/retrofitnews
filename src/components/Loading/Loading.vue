@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="loading">
         <h1>Loading...</h1>
-        <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i><br />
+        <i class="fa fa-hacker-news fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i><br />
       </div>
     </div>
   </div>
@@ -41,7 +41,7 @@
     z-index: 9999;
   }
   .loading {
-    color: #F60;
+    color: rgba(220, 98, 109, .8);
     position: absolute;
     top: 50%;
     left: 50%;

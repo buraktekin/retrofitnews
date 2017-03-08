@@ -12,7 +12,7 @@ export default {
       else {
         return {
           'parent': "col-lg-10",
-          'child': "col-lg-3"
+          'child': "col-lg-2"
         }
       }
     }
