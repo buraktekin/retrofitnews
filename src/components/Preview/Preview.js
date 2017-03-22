@@ -1,5 +1,5 @@
 import Loading from '../Loading/Loading.vue'
-
+import Navbar from '../Navbar/Navbar.vue'
 export default {
   name: "Preview",
   data() {
@@ -9,7 +9,7 @@ export default {
       results: [],
     }
   },
-  components: { Loading },
+  components: { Loading, Navbar },
   methods: {
     conditions(i) {
       if((i.url === null) || (i.url === "")){

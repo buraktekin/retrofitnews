@@ -2,19 +2,21 @@
   <div class="container">
     <loading :loader="isLoading"></loading>
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
         <div class="featurette">
           <navbar></navbar>
-          <h1 class=""><b>Please, indicate your interests</b></h1>
-          <p class="small theme">You might change your selections later.</p>
+          <div class="featurette-message">
+            <h1><b>Please, indicate your interests</b></h1>
+            <p class="small theme">You might change your selections later.</p>
+          </div>
         </div>
       </div>
       <div :class="'transitive ' + changeGrid.parent">
         <div class="fields" v-if="!isLoading">
           <div class="row">
-            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-2" v-for="(f, index) in fields">
+            <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3" v-for="(f, index) in fields">
               <div class="card theme text-center" @click="addToSelections(index)">
-                <i v-bind:class="f.icon + ' fa-3x icon'" aria-hidden="true"></i>
+                <i v-bind:class="f.icon + ' fa-2x icon'" aria-hidden="true"></i>
                 <div class="card-text">
                   <h6><b>{{ f.name }}</b></h6>
                 </div>
@@ -24,7 +26,7 @@
         </div>
       </div>
 
-      <div class="col-lg-2">
+      <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
         <div class="row">
           <transition name="fade">
             <div class="fieldContainer" v-if="selectedFields.length > 0">

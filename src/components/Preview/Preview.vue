@@ -2,7 +2,10 @@
   <div class="container">
     <loading :loader="isLoading"></loading>
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-2">
+        <navbar></navbar>
+      </div>
+      <div class="col-lg-10">
         <div class="preview" v-if="!isLoading">
           <div class="card-deck">
             <div class="card-container" v-for="item in results">

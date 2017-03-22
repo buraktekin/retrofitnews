@@ -6,12 +6,12 @@ export default {
     changeGrid: function() {
       if (this.selectedFields.length === 0) {
         return {
-          'parent': "col-xs-12 col-sm-12 col-md-9 col-lg-9"
+          'parent': "col-xs-12 col-sm-6 col-md-8 col-lg-9"
         }
       }
       else {
         return {
-          'parent': "col-xs-10 col-sm-10 col-md-7 col-lg-7"
+          'parent': "col-xs-10 col-sm-4 col-md-6 col-lg-7"
         }
       }
     }

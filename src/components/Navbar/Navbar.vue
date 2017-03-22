@@ -1,6 +1,6 @@
 <template>
   <a class="navbar-brand" href="/">
-    <img src="https://68.media.tumblr.com/b852ea8d88f4676945e742647fecf018/tumblr_nmd36oiyJ71two90zo1_500.gif" width="90px" />
+    <img src="http://i2.wp.com/www.randomzebra.com/wp-content/uploads/2016/03/Science_Kombat_Pythagoras.gif?fit=378%2C507" width="90px" />
     <h4>VueNews</h4>
   </a>
 </template>
@@ -9,8 +9,10 @@
   a.navbar-brand {
     color: #FFF !important;
     width: 10rem;
-    position: fixed;
+    position: absolute;
     top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     border: 3px solid rgba(255, 255, 255, .3);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
@@ -20,13 +22,15 @@
     }
     h4{ transition: 1s ease-in-out; }
     &:hover {
-      transform: scale(1.1);
+      left: 50%;
       box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
     }
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 575px) {
     a.navbar-brand {
+      transform: scale(.7);
       top: 3px;
+      left: 25%;
     }
   }
 </style>

@@ -13,8 +13,8 @@
 <style lang="scss">
   $color: rgba(255, 255, 234, 1);
   body{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     font-family: 'Hind Guntur', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -23,7 +23,7 @@
   #app:before {
     left: 0;
     top: 0;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     content: ' ';
@@ -34,7 +34,7 @@
     width: 100%;
     height: 100%;
     background: url(https://farm2.staticflickr.com/1590/24994155621_dce78df3b8_k.jpg);
-    background-size: 100% 100%;
+    background-size: cover;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
@@ -56,6 +56,8 @@
 
   p{
     width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   a, a:hover {
