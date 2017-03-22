@@ -17,11 +17,6 @@
         isLoading: this.loader
       }
     },
-    methods: {
-      started () {
-        console.log(this.isLoading);
-      }
-    },
     watch : {
       loader : function (value) {
         this.isLoading = value;

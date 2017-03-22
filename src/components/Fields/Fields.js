@@ -1,23 +1,22 @@
 import Loading from "../Loading/Loading.vue"
+import Navbar from "../Navbar/Navbar.vue"
 export default {
   name: "Fields",
   computed: {
     changeGrid: function() {
       if (this.selectedFields.length === 0) {
         return {
-          'parent': "col-lg-12",
-          'child': "col-lg-2"
+          'parent': "col-xs-12 col-sm-12 col-md-9 col-lg-9"
         }
       }
       else {
         return {
-          'parent': "col-lg-10",
-          'child': "col-lg-2"
+          'parent': "col-xs-10 col-sm-10 col-md-7 col-lg-7"
         }
       }
     }
   },
-  components: { Loading },
+  components: { Loading, Navbar },
   methods: {
     addToSelections(index) {
       // TODO \\

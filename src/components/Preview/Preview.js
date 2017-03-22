@@ -1,4 +1,5 @@
 import Loading from '../Loading/Loading.vue'
+
 export default {
   name: "Preview",
   data() {
@@ -10,14 +11,6 @@ export default {
   },
   components: { Loading },
   methods: {
-    trim: function(text, length) {
-      if(text.length > length) {
-        text = text.substr(0, length) + '...';
-        return text;
-      } else {
-        return text;
-      }
-    },
     conditions(i) {
       if((i.url === null) || (i.url === "")){
         return false;
@@ -34,7 +27,6 @@ export default {
         .then((res) => { return res.json() })
         .then((res) => {
           news.push(res);
-          console.log(res);
         })
       })
       this.results = news;

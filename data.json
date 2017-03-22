@@ -1,9 +1,9 @@
 {
   "data": [
     {"id": 0, "id": 0, "name": "Art and culture", "followers": 0, "icon": "fa fa-paint-brush"},
-    {"id": 1, "name": "Geography and places", "followers": 0, "icon": "fa fa-globe"},
-    {"id": 2, "name": "Health and fitness", "followers": 0, "icon": "fa fa-heartbeat"},
-    {"id": 3, "name": "History and events", "followers": 0, "icon": "fa fa-institution"},
+    {"id": 1, "name": "Geography", "followers": 0, "icon": "fa fa-globe"},
+    {"id": 2, "name": "Health", "followers": 0, "icon": "fa fa-heartbeat"},
+    {"id": 3, "name": "History", "followers": 0, "icon": "fa fa-institution"},
     {"id": 4, "name": "Mathematics", "followers": 0, "icon": "fa fa-superscript"},
     {"id": 5, "name": "Arithmetic", "followers": 0, "icon": "fa fa-calculator"},
     {"id": 6, "name": "Algebra", "followers": 0, "icon": "fa fa-plus"},
@@ -58,7 +58,7 @@
     {"id": 55, "name": "Manufacturing", "followers": 0, "icon": "fa fa-cog"},
     {"id": 56, "name": "Military", "followers": 0, "icon": "fa fa-crosshairs"},
     {"id": 57, "name": "Nutrition", "followers": 0, "icon": "fa fa-smile-o"},
-    {"id": 58, "name": "Robotics", "followers": 0, "icon": "fa fa-child"},
+    {"id": 58, "name": "Robotics", "followers": 0, "icon": "fa fa-android"},
     {"id": 59, "name": "Space exploration", "followers": 0, "icon": "fa fa-grav"},
     {"id": 60, "name": "Transport", "followers": 0, "icon": "fa fa-ship"},
     {"id": 61, "name": "Vehicles", "followers": 0, "icon": "fa fa-car"}

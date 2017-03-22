@@ -18,23 +18,30 @@
     font-family: 'Hind Guntur', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: url(http://www.shivammediaworks.com/gallery_gen/4ef078c6c1028f8599431d92bfaffbc2_1950x1096.7492260062.jpg);
-    background-size: 100% 100%;
     background-repeat: no-repeat;
   }
+  #app:before {
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: ' ';
+    /*background: rgba(0, 0, 0, 0.2);*/
+    background: rgba(78, 88, 177, 0.53);
+  }
   #app {
+    width: 100%;
+    height: 100%;
+    background: url(https://farm2.staticflickr.com/1590/24994155621_dce78df3b8_k.jpg);
+    background-size: 100% 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    margin-top: 0px;
   }
 
   h1, h2 {
     font-weight: normal;
-  }
-
-  h6 {
-    margin: 10px !important;
   }
 
   ul {
@@ -52,6 +59,8 @@
   }
 
   a, a:hover {
+    text-decoration: none !important;
+    outline: none;
     cursor: pointer;
     color: #42b983;
   }
