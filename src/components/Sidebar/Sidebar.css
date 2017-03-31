@@ -1,0 +1,125 @@
+#sidebar-wrapper {
+  margin-right: -250px;
+  right: 0;
+  width: 250px;
+  background: rgba(169, 87, 144, 0.55);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.5s ease-in 0s;
+  -webkit-transition: all 0.5s ease-in 0s;
+  -moz-transition: all 0.5s ease-in 0s;
+  -ms-transition: all 0.5s ease-in 0s;
+  -o-transition: all 0.5s ease-in 0s;
+}
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-nav li {
+  line-height: 50px;
+  text-indent: 20px;
+}
+.sidebar-nav li a {
+  color: #999999;
+  display: block;
+  text-decoration: none;
+}
+.sidebar-nav li a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  text-decoration: none;
+}
+.sidebar-nav li a:active, .sidebar-nav li a:focus {
+  text-decoration: none;
+}
+.sidebar-nav > .sidebar-brand {
+  height: 55px;
+  line-height: 55px;
+  font-size: 18px;
+}
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+#menu-toggle {
+  top: 0;
+  right: 0;
+  position: fixed;
+  z-index: 1;
+}
+#sidebar-wrapper.active {
+  right: 250px;
+  width: 250px;
+  transition: all 0.5s ease-out 0s;
+  -webkit-transition: all 0.5s ease-out 0s;
+  -moz-transition: all 0.5s ease-out 0s;
+  -ms-transition: all 0.5s ease-out 0s;
+  -o-transition: all 0.5s ease-out 0s;
+}
+.selectedFields {
+  color: #FFF;
+  text-align: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.selectedFields h6 {
+  padding: 20px;
+}
+.selectedFields > ul {
+	max-height: 85vh;
+  overflow: scroll;
+}
+.selectedFields > ul > li.field {
+  width: 100%;
+  min-height: 50px;
+  margin: 0;
+  border-left: 0;
+  border-right: 0;
+  background: none;
+  transition: .1s ease-in-out;
+  -webkit-transition: .1s ease-in-out;
+  -moz-transition: .1s ease-in-out;
+  -o-transition: .1s ease-in-out;
+  transition: .1s ease-in-out;
+}
+.selectedFields > ul > li.field:hover{
+  cursor: crosshair;
+  color: #FFF;
+  background-color: rgba(122, 29, 55, .8);
+}
+.selectedFields > ul > li.field:hover > span {
+  color: #fff !important;
+}
+span.done{
+  width: 100%;
+  text-align: right;
+}
+span.done > a {
+  width: 95%;
+  margin: 5px auto;
+  border-radius: 5px;
+  min-width: 100px;
+  background: rgb(52, 63, 110);
+  color: #FFF !important;
+}
+span.done > a:hover {
+  background: rgba(71, 175, 124, 0.85);
+  cursor: pointer;
+}
+.toggle {
+  margin: 5px 5px 0 0;
+}
