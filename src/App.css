@@ -1,37 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo');
+
 body{
   width: 100%;
   height: 100%;
-  font-family: 'Hind Guntur', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-repeat: no-repeat;
+  overflow: hidden;
+  font-family: 'Arvo', serif;
 }
-#app:before {
-  left: 0;
-  top: 0;
-  position: fixed;
+
+form {
   width: 100%;
-  height: 100%;
-  content: ' ';
-  /*background: rgba(0, 0, 0, 0.2);*/
-  background: rgba(78, 88, 177, 0.53);
-}
-#app {
-  width: 100%;
-  height: 100%;
-  background: url(https://farm2.staticflickr.com/1590/24994155621_dce78df3b8_k.jpg);
-  background-size: cover;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
 }
 
 h1, h2 {
   font-weight: normal;
-}
-
-h6 b{
-  color: #FFF;
 }
 
 ul {
@@ -62,10 +45,6 @@ a.cite, a.cite:hover {
   color: rgba(116, 214, 255, 1);
 }
 
-div[class~="col-lg-2"] {
-  padding: 0 0.25rem;
-}
-
 nav {
   width: 100%;
   text-align: left;
@@ -73,8 +52,52 @@ nav {
   box-shadow: 0px 1px 20px rgba(0,0,0,0.4);
 }
 
-.tooltip > .tooltip-inner {
-  color: #42b983 !important;
+#app:before {
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  content: ' ';
+  background: rgba(78, 88, 177, 0.1);
+}
+#app {
+  width: 100%;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+.tooltip {
+  top: 2%;
+  right: 2rem;
+  width: 100px;
+  padding: 5px 10px !important;
+  position: fixed;
+  text-align: center;
+  background: #2e284f;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px rgba(0,0,0,.8);
+  opacity: 0;
+  transition: .5s all ease-in-out;
+  font-size: .7rem;
+  z-index: 1000;
+  display: none;
+}
+
+.copied {
+  background-color: rgba(18, 98, 94, 1) !important;
+}
+
+.btn-tooltip {
+  position: fixed;
+  top: -5px;
+}
+
+.btn-tooltip:hover > p{
+  display: flex;
+  opacity: 1;
 }
 
 .text-muted {

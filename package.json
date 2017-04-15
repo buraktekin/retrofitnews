@@ -9,13 +9,21 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "clipboard": "^1.6.1",
+    "babel-polyfill": "^6.23.0",
+    "dom-storage": "^2.0.2",
+    "es6-promise": "^4.1.0",
+    "faye-websocket": "^0.11.1",
+    "firebase": "^3.7.6",
     "jquery": "^3.2.1",
+    "jsonwebtoken": "^7.3.0",
+    "vee-validate": "^2.0.0-beta.25",
     "vue": "^2.1.0",
+    "vue-easy-toast": "^0.2.6",
     "vue-router": "^2.2.1",
     "vue-strap": "^1.1.36",
     "vue-style-loader": "^2.0.0",
-    "whatwg-fetch": "^2.0.3"
+    "whatwg-fetch": "^2.0.3",
+    "xmlhttprequest": "^1.8.0"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

@@ -1,8 +1,9 @@
 var path = require('path')
 var webpack = require('webpack')
+var firebase = require("firebase");
 
 module.exports = {
-  entry: './src/main.js',
+  entry: ['babel-polyfill', 'whatwg-fetch', './src/main.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',

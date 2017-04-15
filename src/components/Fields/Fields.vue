@@ -6,7 +6,7 @@
         <div class="featurette">
           <navbar></navbar>
           <div class="featurette-message">
-            <h1><b>Please, indicate your interests</b></h1>
+            <h1 class="theme"><b>Please, indicate your interests</b></h1>
             <p class="small theme">You might change your selections later.</p>
           </div>
           <div class="featurette-footer">
@@ -17,11 +17,14 @@
           </div>
         </div>
       </div>
-      <div class="transitive col-xs-12 col-sm-6 col-md-8 col-lg-9">
+      <div class="transitive col-12 col-sm-6 col-md-8 col-lg-9">
+        <div class="done" v-if="selectedFields.length > 0">
+          <a class="btn btn-default btn-md btn-done" @click="submitSelection()">Ready!</a>
+        </div>
         <div class="fields" v-if="!isLoading">
           <div class="row">
-            <div class="col-xs-4 col-sm-6 col-md-3 col-lg-2" v-for="(f, index) in fields">
-              <div class="card theme text-center" @click="addToSelections(index)">
+            <div class="col-6 col-sm-12 col-md-4 col-lg-3 col-xl-2" v-for="(f, index) in fields">
+              <div class="card card-fields theme text-center" v-bind:class="{ active: f.isActive }" v-on:click="selectField($event,index)">
                 <i v-bind:class="f.icon + ' fa-2x icon'" aria-hidden="true"></i>
                 <div class="card-text">
                   <h6><b>{{ f.name }}</b></h6>
@@ -31,7 +34,6 @@
           </div>
         </div>
       </div>
-      <sidebar :selections="selectedFields" :fields="fields"></sidebar>
     </div>
   </div>
 </template>

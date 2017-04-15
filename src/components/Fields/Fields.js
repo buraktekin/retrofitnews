@@ -1,24 +1,28 @@
 import Loading from "../Loading/Loading.vue"
 import Navbar from "../Navbar/Navbar.vue"
-import Sidebar from "../Sidebar/Sidebar.vue"
-import 'whatwg-fetch'
 
 export default {
   name: "Fields",
-  components: { Loading, Navbar, Sidebar },
+  components: { Loading, Navbar },
   methods: {
-    addToSelections(index) {
-      // TODO \\
-      // Returns an object which has id/index of the
-      // selected element and element itself.
-      const selected = (function(index, array) {
-        const temp = array.splice(index, 1)[0];
-        return {
-          item: temp
-        }
+    selectField(event, index) {
+      const temp = this.fields[index];
+      temp.isActive = !temp.isActive;
+      temp.isActive ? this.selectedFields.push(temp) : this.removeField(temp.id);
+      this.sortArray(this.selectedFields);
+    },
+    removeField(id) {
+      const index = this.selectedFields.findIndex(item => item.id === id);
+      this.selectedFields.splice(index, 1)[0];
+    },
+    submitSelection() {
+      this.$root.$data.data = this.selectedFields;
+      this.$router.push('Preview');
+    },
+    sortArray(array) {
+      array.sort(function(a, b) {
+        return a.id - b.id;
       });
-      const item = selected(index, this.fields);
-      this.selectedFields.push(item);
     }
   },
   data() {

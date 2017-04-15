@@ -1,16 +1,17 @@
+#app {
+  background: url(https://static.pexels.com/photos/94363/pexels-photo-94363.jpeg) !important;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+}
 .transitive{
   transition: .3s ease-in-out;
 }
-.theme {
-  color: rgb(247, 240, 237);
-}
 .fields {
-  z-index: 20;
   width: 100%;
   max-height: 100vh;
   overflow-y: auto;
-  margin: 20px 0 0 0;
-  padding: 30px;
+  position: relative;
+  padding: 0 10px 60px 10px;
   border-radius: 5px;
   /*box-shadow: 0px 0px 120px rgba(0, 0, 0, .4);*/
   /*background: rgba(255, 255, 255, .3);*/
@@ -29,22 +30,26 @@
   margin: 5px auto;
   min-height: 115px;
   transition: .2s ease-in-out;
-  background: rgba(78, 88, 177, 0.53);
+  background: rgba(113, 87, 169, 0.23);
   border: 2px solid rgba(62, 74, 146, 0.2);
 }
 .card:hover {
-  color: #FFF !important;
+  color: rgba(86, 62, 109, 1) !important;
   cursor: pointer;
-  background: rgba(78, 88, 177, 0.8);
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8);
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-  transform: scale(1.02);
+  background: rgba(255, 255, 255, 1);
+}
+.card-fields.active {
+  background: rgba(24, 239, 194, 0.37) !important;
 }
 .card-header {
   background: none;
 }
 .card-text h6{
   font-size: .8rem;
+}
+.theme {
+  color: rgb(247, 240, 237);
+  text-shadow: 0px 0px 10px rgba(255,255,255,.5);
 }
 .icon{
   margin: 10px;
@@ -63,6 +68,7 @@
   border-right: 1px solid #f5f5f5;
 }
 .featurette-message {
+  position: relative;
   padding: 0 20px;
 }
 .featurette-footer{
@@ -70,7 +76,7 @@
   width: 250px;
   bottom: 0;
   color: #FFF;
-  padding: 10px;
+  padding: 25px;
 }
 .featurette-footer p{
   font-size: .7rem;
@@ -87,10 +93,30 @@
 .fade-enter, .fade-leave-to {
   opacity: 0
 }
-@media screen and (max-width: 992px) {
-  .fields {
-    margin: 20px 0;
-  }
+div.done{
+  z-index: 20;
+  width: 100%;
+  min-height: 50px;
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  transition: 1s all ease-in-out;
+}
+div.done > a {
+  margin: 0;
+  width: 95%;
+  height: 50px;
+  line-height: 34px;  
+  border-radius: 5px;
+  background: rgba(21, 103, 109, 0.8);
+  color: #FFF !important;
+}
+div.done > a:hover {
+  background: rgba(21, 103, 109, 1);
+  cursor: pointer;
+}
+
+@media screen and (max-width : 992px) {
   div.featurette {
     margin: 0;
     border-right: 1px solid #f5f5f5;
@@ -113,18 +139,32 @@
   }
 }
 
-@media screen and (max-width: 575px) {
-  .card {
-    width: 50%;
+@media screen and (min-width : 320px) and (max-width : 568px) {
+  .card-fields {
+    margin: 5px;
+    padding: 0;
+    background-color: rgba(78, 88, 177, 0.8) !important;
   }
-  div.featurette {
-    border-right: none;
-    margin-top: 120px;
+  .fields {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .featurette {
+    height: 100%;
+    border-right: none !important;
+    top: 0;
   }
   .featurette-message {
-    margin-bottom: 30px;
+    font-size: .5rem;
+    top: 0;
     padding: 20px;
     border-top: 1px solid rgba(255,255,255,0.4);
     border-bottom: 1px solid rgba(255,255,255,0.4);
+  }
+  .featurette-message h1 {
+    font-size: 1.5rem;
+  }
+  .featurette-footer {
+    display: none;
   }
 }

@@ -7,16 +7,7 @@
           <navbar></navbar>
           <div class="featurette-container">
             <div class="featurette-message">
-              <h6 class="text-center"><b>Filter your selections</b></h6>
-              <hr />
-            </div>
-            <div class="featurette-bookmark mx-auto">
-              <span class="bookmark" v-for="bookmark in selectedFields.data">
-                <button :id="bookmark.item.name.replace(/ /g, '-')" class="btn btn-xs btn-filter" @click="filter(bookmark.item.name)">
-                  <i :class="bookmark.item.icon"></i>
-                  <p class="text-truncate">{{ bookmark.item.name }}</p>
-                </button>
-              </span>
+              <h6 class="text-center"><b></b></h6>
             </div>
           </div>
           <div class="featurette-footer">
@@ -27,30 +18,41 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-9">
+      <div class="col-sm-12 col-lg-9">
         <div class="preview" v-if="!isLoading">
+          <div class="featurette-filter mx-auto">
+            <a class="btn btn-tooltip mt-2"><i class="fa fa-2x fa-filter"></i><p class="theme tooltip">Filter by Selected Categories</p></a>
+            <span class="filter" v-for="filter in selectedFields.data">
+              <a :id="filter.name.replace(/ /g, '-')" class="btn btn-xs btn-filter" @click="filterNews(filter)">
+                <i :class="filter.icon"></i>
+                <p class="text-truncate">{{ filter.name }}</p>
+              </a>
+            </span>
+          </div>
           <div class="news-container">
-            <div class="list-group" v-for="item in results">
+            <div :id="item.query.replace(/ /g,'-')" class="list-group" v-for="item in results">
               <div class="news-category p-3">News related with the topic <span><h5><i :class="item.icon"></i> {{ item.query }}</h5></span></div>
-              <div :id="item.query.replace(/ /g, '-')" class="list-group-item list-group-item-action" v-for="(i, index) in item.hits">
-                <div class="news">
-                  <div class="news-header">
-                    <h6 class="text-left"><a :href="i.url">{{ i.title }}</a></h6>
-                    <small>
-                      <i class="fa fa-calendar text-primary"></i> : {{ dateTime(i).date }} | 
-                      <i class="fa fa-clock-o text-danger"></i> : {{ dateTime(i).time }} |
-                      <i class="fa fa-user text-success"></i> : {{ i.author }}
-                    </small>
-                  </div>
-                  <div class="news-content">
-                  </div>
-                  <div class="news-footer">
-                    <p :id="'url' + index" class="urls small">
-                      {{ i.url }}
-                    </p>
-                    <a class="btn btn-copy btn-text btn-xs text-muted" data-placement="right" :data-clipboard-target="'#url' + index" alt="Copy">
-                      <small><i class="fa fa-clipboard" alt="Copy to clipboard" /></small>
-                    </a>
+                <div class="list-group-item list-group-item-action" v-for="(i, index) in item.hits" v-if="i.visible">
+                  <div class="news">
+                    <div class="news-header">
+                      <h6 class="text-left"><a :href="i.url" target="_blank">{{ i.title }}</a></h6>
+                      <small>
+                        <i class="fa fa-calendar text-primary"></i> : {{ dateTime(i).date }} | 
+                        <i class="fa fa-clock-o text-danger"></i> : {{ dateTime(i).time }} |
+                        <i class="fa fa-user text-success"></i> : {{ i.author }}
+                      </small>
+                    </div>
+                    <div class="news-content">
+                    </div>
+                    <div class="news-footer">
+                      <p :id="'url' + index" class="urls small">
+                        {{ i.url }}
+                      </p>
+                      <a class="btn btn-copy btn-tooltip btn-text btn-xs text-muted" @click="copyToClipboard">
+                        <small><i class="fa fa-clipboard" alt="Copy to clipboard" /></small>
+                        <p class="theme tooltip">Copy URL</p>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
