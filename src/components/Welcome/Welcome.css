@@ -1,0 +1,85 @@
+section {
+	display: flex;
+  height: 100vh;
+	justify-content: center;
+	align-items: center;
+}
+
+#welcome::before{
+	content: ' ';
+	position: fixed;
+	width:100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: url("https://static.pexels.com/photos/102720/pexels-photo-102720.jpeg") !important;
+	background-size: cover;
+	opacity: .4;
+}
+
+#welcome {
+	height: 100%;
+}
+
+#description{
+	border-right: 1px solid	rgba(0,0,0,0.1);
+}
+
+.masthead > .overlay {
+	padding: 2rem;
+	width: 100vw;
+	height: 20vh;
+	text-align: center;
+	background: rgba(46, 36, 70, .9);
+}
+
+.masthead > .overlay img{
+	height: 100%;
+}
+
+.vn-brand-animate {
+	padding: 10px;
+	color: rgba(46, 36, 70, 1);
+	font-size: 1.5rem;
+}
+
+.slide{
+	position: relative;
+	z-index: 200;
+}
+
+.fa-hacker-news {
+	position: relative;
+	opacity: 0;
+	left: -50px;
+	color: #fd6721;
+}
+
+.icons{
+	display: grid;
+	justify-content: center;
+}
+
+@media only screen and (min-width: 993px) {
+	div.icons {
+		padding: 5rem !important;
+	}
+}
+
+@media only screen and (min-width: 320px) and (max-width: 992px)  {
+	div.icons {
+		padding: 1rem;
+	}
+	#description{
+		border-right: none;
+		border-bottom: 1px solid rgba(0,0,0,0.1);
+		margin-bottom: 10px;
+		padding-bottom: 20px;
+	}
+	.vn-brand-animate {
+		font-size: 1.2rem;
+	}
+	footer {
+		position: relative;
+	}
+}

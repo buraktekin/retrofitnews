@@ -8,7 +8,7 @@
 	        <input type="password" name="pass-confirm" class="form-control" id="vn-register-pass-confirm" placeholder="Repeat Password" v-model="passConfirm">
 	      </div>
 	    </div>
-	    <button type="submit" class="btn-theme btn-sm mt-2" @click="formSubmit">Submit</button>
+	    <button type="submit" class="btn btn-md btn-block btn-success" @click="formSubmit">Submit</button>
 	    <!-- <p class="small mt-5"><a href="#login" class="pull-left theme" data-toggle="tab" role="tab">Already registered?</a></p> -->
 	  </form>
 	</div>

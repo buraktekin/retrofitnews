@@ -61,6 +61,8 @@
     {"id": 58, "name": "Robotics", "followers": 0, "icon": "fa fa-android", "isActive": false},
     {"id": 59, "name": "Space exploration", "followers": 0, "icon": "fa fa-grav", "isActive": false},
     {"id": 60, "name": "Transport", "followers": 0, "icon": "fa fa-ship", "isActive": false},
-    {"id": 61, "name": "Vehicles", "followers": 0, "icon": "fa fa-car", "isActive": false}
+    {"id": 61, "name": "Vehicles", "followers": 0, "icon": "fa fa-car", "isActive": false},
+    {"id": 62, "name": "Music", "followers": 0, "icon": "fa fa-music", "isActive": false},
+    {"id": 63, "name": "Games", "followers": 0, "icon": "fa fa-gamepad", "isActive": false}
   ]
 }

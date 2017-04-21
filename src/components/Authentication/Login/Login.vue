@@ -7,7 +7,7 @@
 	        <input type="password" class="form-control form-control-warning" id="vn-register-pass" placeholder="Password">
 	      </div>
 	    </div>
-	    <button type="submit" class="btn-theme btn-sm">Submit</button>
+	    <button type="submit" class="btn btn-md btn-block btn-success">Submit</button>
 	    <!-- <p class="small mt-5"><a href="#register" class="pull-left theme" data-toggle="tab" role="tab">Not registered?</a></p> -->
 	  </form>
 	</div>
