@@ -9,7 +9,7 @@
 	var $ = global.jQuery;
 	window.$ = $;
 	
-  export default {
+  export default {    
     name: 'App'
   }
 </script>

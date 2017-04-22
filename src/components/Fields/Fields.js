@@ -1,5 +1,7 @@
 import Loading from "../Loading/Loading.vue"
 import Navbar from "../Navbar/Navbar.vue"
+import Router from '../../router.js'
+import authHelper from '../Authentication/AuthHelper.js'
 
 export default {
   name: "Fields",
@@ -17,12 +19,15 @@ export default {
     },
     submitSelection() {
       this.$root.$data.data = this.selectedFields;
-      this.$router.push('Preview');
+      Router.push('Preview');
     },
     sortArray(array) {
       array.sort(function(a, b) {
         return a.id - b.id;
       });
+    },
+    signOut() {
+      authHelper.signOut();
     }
   },
   data() {

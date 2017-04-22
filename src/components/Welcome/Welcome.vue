@@ -11,7 +11,7 @@
 	      <div class="row align-items-center">
 	      	<div id="description" class="col-sm-12 col-md-12 col-lg-4">
 	          <div class="p-4 mt-3 text-left">
-	            <h2 class="display-5">For those who seek getting top latest news about their interest.</h2>
+	            <h2 class="display-5">For those who seek getting top latest news about their interests.</h2>
 	            <p class="mt-3">
 	              <b>Welcome to VueNews</b>
 	              <p>VueNews is one of the <i>Hackernews</i> clients which is created for people want to follow only specific topics.</p>
