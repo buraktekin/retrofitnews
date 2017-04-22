@@ -87,7 +87,7 @@
 	          </div>
 	        </div>
 	      </div>
-	    </div>
+	    </section>
 
 	    <!-- Footer -->
 	    <footer class="fixed-bottom p-3">
@@ -98,7 +98,7 @@
 	        <!-- /.container -->
 	    </footer>
 	    <!-- /.Footer -->
-	  </section>
+	  </div>
   </div>
 </template>
 

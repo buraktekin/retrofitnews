@@ -4,8 +4,8 @@
 			<div class="row">
 				<div class="vn-authentication theme">
 					<!-- Nav tabs -->
-					<div class="col-sm-12">
-						<a href="/" class="navbar-brand"><img src="../../assets/logo-new-white.png" /></a>
+					<div class="navbar-brand">
+						<a href="/"><img src="../../assets/logo-new-white.png" /></a>
 					</div>
 					<hr />
 					<div class="col-sm-12 mt-5">

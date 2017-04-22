@@ -1,29 +1,40 @@
 <template>
-  <a class="navbar-brand" href="/">
-    <img src="../../assets/logo-new-white.png"/>
-  </a>
+  <div class="navbar-brand">
+    <a href="/">
+      <img src="../../assets/logo-new-white.png"/>      
+    </a>
+  </div>
 </template>
 
 <style lang="scss">
-  a.navbar-brand {
-    top: 7%;
-    margin: 0;
+  .navbar-brand {
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     padding: 0;
-    width: 10rem;
-    height: 10rem;
+    width: 100%;
+    height: 100%;
     position: absolute;
     text-align: center;
     background: rgba(113, 87, 169, 0.2);
-    border: 3px solid rgba(0, 0, 0, .9);
+    border: 3px solid rgba(0, 0, 0, 0.9);
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
     transition: .7s ease-in-out;
+    pointer-events: none; 
     img {
-      width: 100%;
-      padding: 20px;
-      top: 50%;
+      width: 80%;
+      padding: 0;
+      top: 3rem;
       left: 0;
-      position: absolute;
-      transform: translateY(-50%);
+      right: 0;
+      margin: 0 auto;
+      position: relative;
+      pointer-events: all;
+    }
+    &:hover {
+      background: rgba(113, 87, 169, 0.6);
+      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
     }
     h2{ 
       transition: 1s ease-in-out;
@@ -32,13 +43,9 @@
       right: 0;
       bottom: -50px;
     }
-    &:hover {
-      background: rgba(113, 87, 169, 0.6);
-      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
-    }
   }
   @media screen and (max-width: 575px) {
-    a.navbar-brand {
+    .navbar-brand {
       top: 0;
       width: 100%;
       height: 100%;
