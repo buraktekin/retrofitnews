@@ -37,10 +37,11 @@ section {
 	height: 100%;
 }
 
-.vn-brand-animate {
+.vn-brand-animate i{
 	padding: 10px;
 	color: rgba(46, 36, 70, 1);
 	font-size: 1.5rem;
+	position: relative;
 }
 
 .slide{

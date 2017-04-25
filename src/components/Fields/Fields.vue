@@ -11,10 +11,6 @@
               <p class="small theme">You might change your selections later.</p>
             </div>
             <div class="featurette-footer">
-              <div class="mb-2">
-                <span class="small">Welcome</span>
-                <button class="btn btn-md btn-block btn-theme" @click="signOut">Sign Out</button>
-              </div>
               <p>
                 Curated with <span><i class="fa fa-heart text-danger"></i> by <a class="cite" href="#"> Burak Tekin.</a></span> The content of this site is licensed under MIT.<br/>
                 <p>Art graphic by <a class="cite" href="http://www.flaticon.com/authors/freepik">Freepik</a> from <a class="cite" href="http://www.flaticon.com/">Flaticon</a> is licensed under <a class="cite" href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>. Made with <a class="cite" href="http://logomakr.com" title="Logo Maker">Logo Maker</a></p>

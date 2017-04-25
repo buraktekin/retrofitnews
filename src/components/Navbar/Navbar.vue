@@ -1,8 +1,13 @@
 <template>
-  <div class="navbar-brand">
-    <a href="/">
-      <img src="../../assets/logo-new-white.png"/>      
-    </a>
+  <div class="row">
+    <div class="navbar-brand">
+      <router-link to="/">
+        <img src="../../assets/logo-new-white.png"/>      
+      </router-link>
+    </div>
+    <div class="mb-2" v-if="isUserActive">
+      <button class="btn btn-md btn-block btn-theme" @click="signOut">Sign Out</button>
+    </div>
   </div>
 </template>
 
@@ -54,3 +59,23 @@
     }
   }
 </style>
+<script type="text/javascript">
+  import authHelper from '../Authentication/AuthHelper.js'
+
+  export default {
+    name: 'Navbar',
+    data() {
+      return {
+        userActive: false,
+      }
+    },
+    methods: {
+      isUserActive() {
+        return authHelper.Firebase.auth().currentUser ? true : false;
+      },
+      signOut() {
+        authHelper.signOut();
+      }
+    }
+  }
+</script>

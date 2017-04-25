@@ -19,10 +19,10 @@
 	          </div>
 	          <div class="row justify-content-md-center">
 					    <div class="col-6 col-md-auto">
-		        		<a href="./authentication#register" class="btn btn-md btn-block btn-theme">Sign Up</a>
+		        		<router-link to="./authentication#register" class="btn btn-md btn-block btn-theme">Sign Up</router-link>
 					    </div>
 					    <div class="col-6 col-md-auto">
-		        		<a href="./authentication#login" class="btn btn-md btn-block btn-theme">Sign In</a>
+		        		<router-link to="./authentication#login" class="btn btn-md btn-block btn-theme">Sign In</router-link>
 					    </div>
 		        </div>
 	        </div>
@@ -31,35 +31,35 @@
 	        	<div class="row align-items-center">
 	          	<div class="col-12">
 	          		<div class="icons">
-		            	<div class="row align-items-center text-center">
-		            		<i class="vn-brand-animate fa fa-automobile"></i>
-			            	<i class="vn-brand-animate fa fa-camera slide"></i>
-			            	<i class="vn-brand-animate fa fa-gamepad"></i>
+		            	<div class="vn-brand-animate row align-items-center text-center">
+		            		<i class="fa fa-automobile"></i>
+			            	<i class="fa fa-camera slide"></i>
+			            	<i class="fa fa-gamepad"></i>
 		            	</div>
-		            	<div class="row align-items-center text-center">
-		            		<i class="vn-brand-animate fa fa-heart"></i>
-			            	<i class="vn-brand-animate fa fa-institution"></i>
-			            	<i class="vn-brand-animate fa fa-magnet"></i>
+		            	<div class="vn-brand-animate row align-items-center text-center">
+		            		<i class="fa fa-heart"></i>
+			            	<i class="fa fa-institution"></i>
+			            	<i class="fa fa-magnet"></i>
 		            	</div>
-		            	<div class="row align-items-center text-center">
-		            		<i class="vn-brand-animate fa fa-music"></i>
-			            	<i class="vn-brand-animate fa fa-language slide"></i>
-			            	<i class="vn-brand-animate fa fa-cube"></i>
+		            	<div class="vn-brand-animate row align-items-center text-center">
+		            		<i class="fa fa-music"></i>
+			            	<i class="fa fa-language slide"></i>
+			            	<i class="fa fa-cube"></i>
 		            	</div>
-		            	<div class="row align-items-center text-center">
-		            		<i class="vn-brand-animate fa fa-code slide"></i>
-			            	<i class="vn-brand-animate fa fa-fire"></i>
-			            	<i class="vn-brand-animate fa fa-globe"></i>
+		            	<div class="vn-brand-animate row align-items-center text-center">
+		            		<i class="fa fa-code slide"></i>
+			            	<i class="fa fa-fire"></i>
+			            	<i class="fa fa-globe"></i>
 		            	</div>
-		            	<div class="row align-items-center text-center">
-		            		<i class="vn-brand-animate fa fa-glass"></i>
-			            	<i class="vn-brand-animate fa fa-gamepad"></i>
-			            	<i class="vn-brand-animate fa fa-database"></i>
+		            	<div class="vn-brand-animate row align-items-center text-center">
+		            		<i class="fa fa-glass"></i>
+			            	<i class="fa fa-gamepad"></i>
+			            	<i class="fa fa-database"></i>
 		            	</div>
-		            	<div class="row align-items-center text-center">
-		            		<i class="vn-brand-animate fa fa-legal"></i>
-			            	<i class="vn-brand-animate fa fa-paw"></i>
-			            	<i class="vn-brand-animate fa fa-rocket slide"></i>
+		            	<div class="vn-brand-animate row align-items-center text-center">
+		            		<i class="fa fa-legal"></i>
+			            	<i class="fa fa-paw"></i>
+			            	<i class="fa fa-rocket slide"></i>
 		            	</div>
 		            </div>
 	            </div>

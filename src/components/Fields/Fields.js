@@ -18,7 +18,7 @@ export default {
       this.selectedFields.splice(index, 1)[0];
     },
     submitSelection() {
-      this.$root.$data.data = this.selectedFields;
+      this.$root.data = this.selectedFields;
       Router.push('Preview');
     },
     sortArray(array) {

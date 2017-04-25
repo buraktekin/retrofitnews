@@ -5,7 +5,9 @@
 				<div class="vn-authentication theme">
 					<!-- Nav tabs -->
 					<div class="navbar-brand">
-						<a href="/"><img src="../../assets/logo-new-white.png" /></a>
+						<router-link to="/">
+							<img src="../../assets/logo-new-white.png" />
+						</router-link>
 					</div>
 					<hr />
 					<div class="col-sm-12 mt-5">

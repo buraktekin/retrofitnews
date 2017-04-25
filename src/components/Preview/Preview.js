@@ -40,11 +40,11 @@ export default {
         fetch(url)
         .then((res) => { return res.json() })
         .then((res) => {
-          res.hits.map((y) => {
-            if(y.url == "" || y.url == null) {
-              y['visible'] = false;
+          res.hits.map((response) => {
+            if(response.url == "" || response.url == null) {
+              response['visible'] = false;
             } else {
-              y['visible'] = true;
+              response['visible'] = true;
             }
           });
           res['id'] = x.id;
@@ -64,11 +64,6 @@ export default {
     filterNews(item) {
       const item_filter = item.name.replace(/ /g,'-');
       $("[id="+item_filter+"]").toggleClass('remove');
-    },
-    sortArray(array) {
-      array.sort(function(a, b) {
-        return a.id - b.id;
-      });
     }
   },
   created() {

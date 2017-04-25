@@ -4,11 +4,7 @@
   </div>
 </template>
 
-<script>
-	global.jQuery = require('jquery');
-	var $ = global.jQuery;
-	window.$ = $;
-	
+<script>	
   export default {    
     name: 'App'
   }

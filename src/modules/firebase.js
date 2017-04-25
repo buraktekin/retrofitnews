@@ -8,6 +8,10 @@ var config = {
 	storageBucket: "vuenews-8437b.appspot.com",
 	messagingSenderId: "1009792955903"
 };
-var vnfb = firebase.initializeApp(config);
-const FBApp = vnfb;
-export default FBApp
+
+const fb = firebase.initializeApp(config);
+
+export default {
+	Firebase: fb,
+	Database: fb.database()
+}

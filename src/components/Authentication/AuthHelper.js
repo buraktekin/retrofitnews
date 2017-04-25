@@ -1,12 +1,20 @@
-import FBApp from '../../modules/firebase.js'
+import fb from '../../modules/firebase.js'
 import Router from '../../router.js'
 
+var Firebase = fb.Firebase;
+var Database = fb.Database;
+
 var authHelp = {
+  Firebase: fb.Firebase,
+  Database: fb.Database,
+
   firebaseAuth: function(email, password) {
     let errorHandle = this.flashMessage;
-    FBApp.auth().createUserWithEmailAndPassword(email, password)
-    .then(() => this.signInWithPassword(email, password))
-    .catch(function(error) {
+    Firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then((userData) => {
+      this.writeUserData(userData.uid, this.getName(userData), userData.email);
+      this.signInWithPassword(email, password);
+    }).catch(function(error) {
       // Handle Errors here.
       // var errorCode = error.code;
       var errorMessage = error.message;
@@ -14,8 +22,19 @@ var authHelp = {
     });
   },
 
+  getName: function(userData) {
+    switch(userData.providerData[0].providerId) {
+       case 'password':
+         return userData.email.replace(/@.*/, '');
+       case 'twitter':
+         return userData.twitter.displayName;
+       case 'facebook':
+         return userData.facebook.displayName;
+    }
+  },
+
   signInWithPassword: function(email, password) {
-    return FBApp.auth().signInWithEmailAndPassword(email, password)
+    return Firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userData) => {
       this.onSignedIn();
     }).catch((error) => { 
@@ -30,13 +49,23 @@ var authHelp = {
 
   signOut: function() {
     let flashMessage = this.flashMessage;
-    FBApp.auth().signOut().then(function() {
+    Firebase.auth().signOut().then(function() {
       window.location.href = '/';
     }).catch(function(error) {
       flashMessage(error.message, "danger");
     });
   },
 
+  // DATABASE 
+  writeUserData: function(userId, name, email) {
+    Database.ref('users/' + userId).set({
+      'username': name,
+      'email': email
+    });
+  },
+  // END of DATABASE
+
+  // MESSAGE FLASHING
   flashMessage: function(errorMessage, errorType) {
     Vue.toast('<i class="fa fa-exclamation-triangle fa-3x"></i>' +  errorMessage, {
       id: "toast",
@@ -44,6 +73,7 @@ var authHelp = {
       className: ['vn-toast', 'toast-'.concat(errorType)]
     });
   }
+  // END of MESSAGE FLASHING
 }
 
 export default authHelp;
