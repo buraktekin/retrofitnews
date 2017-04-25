@@ -115,22 +115,49 @@
 #toast i{
 	position: relative;
 	margin: 0 10px;
+	display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  text-decoration: normal;
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  white-space: pre;
 }
 
 .toast-warning i {
 	color: rgba(255, 142, 2, 0.86);
+	text-shadow: 0 0 1px rgb(136, 102, 60), 
+							0 0 10px rgba(112, 101, 58, 0.86), 
+							0 0 20px rgba(111, 112, 58, 0.86), 
+							0 0 260px #e6800f;
 }
 
 .toast-danger i {
 	color: rgba(255, 19, 19, 0.86);
+	text-shadow: 0 0 1px rgba(112, 58, 58, 0.86), 
+							0 0 10px rgba(112, 58, 58, 0.86), 
+							0 0 20px rgba(112, 58, 58, 0.86), 
+							0 0 260px #ff0000;
 }
 
 .toast-success i {
 	color: rgba(25, 150, 104, 0.86);
+	text-shadow: 0 0 1px rgba(58, 112, 102, 0.86), 
+							0 0 10px rgba(58, 112, 90, 0.86), 
+							0 0 20px rgba(58, 112, 93, 0.86), 
+							0 0 260px #00ffa3;
 }
 
 .toast-info i {
-	color: rgba(76, 58, 112, .86);
+	color: rgba(153, 105, 249, 0.86);
+	text-shadow: 0 0 1px rgba(76, 58, 112, .86), 
+  						0 0 10px rgba(76, 58, 112, .86), 
+  						0 0 20px rgba(76, 58, 112, .86) , 
+  						0 0 260px #ff00de;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */

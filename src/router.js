@@ -29,7 +29,7 @@ const router = new VueRouter({
     { 
     	name: 'Fields',
     	path: '/fields', 
-    	component: Fields,  
+    	component: Fields,
     	meta: { requiresAuth: true }
     },
     { 
@@ -44,20 +44,18 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
 	const toPath = to.path.toLowerCase();
   const fromPath = from.path.toLowerCase();
-
-  console.log(to);
-  console.log(from);
-  
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    if (!Firebase.auth().currentUser) {
+  	// Fields && Preview
+    if (Firebase.auth().currentUser) {
+    	next();
+    } else {
     	next({
     		path: '/authentication',
     		query: null
     	});
-    } else {
-    	next();
     }
   } else {
+  	// Authentication && Home
     next();
   }
 });
