@@ -1,7 +1,11 @@
-import Loading from "../Loading/Loading.vue"
-import Navbar from "../Navbar/Navbar.vue"
+import fb from '../../modules/firebase.js'
 import Router from '../../router.js'
 import authHelper from '../Authentication/AuthHelper.js'
+
+import Loading from "../Loading/Loading.vue"
+import Navbar from "../Navbar/Navbar.vue"
+
+var Firebase = fb.Firebase;
 
 export default {
   name: "Fields",
@@ -52,7 +56,6 @@ export default {
   beforeRouteLeave (to, from, next) {
     // vue-router built-in method.
     // Avoid geniuses to go to 'preview' without any selection
-    this.selectedFields.length > 1 ? next() : authHelper.flashMessage(
-      "Please select at least 1 category.", 'info');
+    this.selectedFields.length > 0 ? next() : authHelper.flashMessage("Please select at least 1 category.", 'info');
   }
 }

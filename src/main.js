@@ -8,9 +8,6 @@ import router from './router.js'
 window.Vue = Vue;
 Vue.use(Toast);
 
-var $ = global.jQuery;
-window.$ = $;
-
 var Firebase = fb.Firebase;
 
 Firebase.auth().onAuthStateChanged(() => {

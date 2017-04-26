@@ -18,13 +18,39 @@ const router = new VueRouter({
     	name: 'Welcome',
     	path: '/',
     	component: Welcome,
-    	meta: { requiresAuth: false }
+    	meta: { requiresAuth: false },
+    	beforeEnter: (to, from, next) => {
+				// react to route changes...
+				// router logic: Users have to be registered
+				console.log(to, from);
+				if (Firebase.auth().currentUser) {
+				  next({
+				    path: '/fields',
+				    redirect: to.fullPath
+				  });
+				} else {
+				  next();
+				}
+			}
     },
     { 
     	name: 'Auth',
     	path: '/authentication', 
     	component: Authentication,
-    	meta: { requiresAuth: false }
+    	meta: { requiresAuth: false },
+    	beforeEnter: (to, from, next) => {
+				// react to route changes...
+				// router logic: Users have to be registered
+				console.log(to, from);
+				if (Firebase.auth().currentUser) {
+				  next({
+				    path: '/fields',
+				    redirect: to.fullPath
+				  });
+				} else {
+				  next();
+				}
+			}
     },
     { 
     	name: 'Fields',
@@ -59,18 +85,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 });
-
-// beforeEnter: (to, from, next) => {
-//   // react to route changes...
-//   // router logic: Users have to be registered
-//   if (Firebase.auth().currentUser) {
-//     next({
-//       path: '/fields',
-//       redirect: to.fullPath
-//     });
-//   } else {
-//     next();
-//   }
-// }
 
 export default router;

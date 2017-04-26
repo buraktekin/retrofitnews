@@ -34,7 +34,7 @@
 	background: rgba(24, 18, 35, 0.7);
 	box-shadow: 0px 0px 10px rgba(153, 82, 197, 0.8);
 	border-radius: 20px;
-	transition: 1s all ease-in-out;
+	transition: .7s all ease-in-out;
 }
 
 .vn-authentication:hover {
