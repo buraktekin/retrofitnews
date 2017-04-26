@@ -11,14 +11,13 @@ Vue.use(Toast);
 var Firebase = fb.Firebase;
 
 Firebase.auth().onAuthStateChanged(() => {
-	console.log(Firebase.auth().currentUser);
+	// check user's authentication status
 	// Initialize New Vue Object
 	new Vue({
 	  el: '#app',
 	  data() {
 	    return { 
-	      data: [],
-	      user: {}
+	      data: []
 	    }
 	  },
 	  render: h => h(App),

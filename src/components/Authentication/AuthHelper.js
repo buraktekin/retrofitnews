@@ -26,6 +26,7 @@ var authHelp = {
     switch(userData.providerData[0].providerId) {
        case 'password':
          return userData.email.replace(/@.*/, '');
+       // TODO: Auth options should be implemented.
        case 'twitter':
          return userData.twitter.displayName;
        case 'facebook':
@@ -48,12 +49,14 @@ var authHelp = {
   },
 
   signOut: function() {
-    let flashMessage = this.flashMessage;
-    Firebase.auth().signOut().then(function() {
-      window.location.href = '/';
-    }).catch(function(error) {
-      flashMessage(error.message, "danger");
-    });
+    if (confirm('Are you sure you want to sign out?')) {
+      let flashMessage = this.flashMessage;
+      Firebase.auth().signOut().then(function() {
+        window.location.href = '/';
+      }).catch(function(error) {
+        flashMessage(error.message, "danger");
+      });
+    } else {}
   },
 
   // DATABASE 

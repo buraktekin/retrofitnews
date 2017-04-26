@@ -20,13 +20,10 @@ const router = new VueRouter({
     	component: Welcome,
     	meta: { requiresAuth: false },
     	beforeEnter: (to, from, next) => {
-				// react to route changes...
-				// router logic: Users have to be registered
-				console.log(to, from);
 				if (Firebase.auth().currentUser) {
 				  next({
 				    path: '/fields',
-				    redirect: to.fullPath
+				    redirect: to.path
 				  });
 				} else {
 				  next();
@@ -39,13 +36,10 @@ const router = new VueRouter({
     	component: Authentication,
     	meta: { requiresAuth: false },
     	beforeEnter: (to, from, next) => {
-				// react to route changes...
-				// router logic: Users have to be registered
-				console.log(to, from);
 				if (Firebase.auth().currentUser) {
 				  next({
 				    path: '/fields',
-				    redirect: to.fullPath
+				    redirect: to.path
 				  });
 				} else {
 				  next();
@@ -68,8 +62,6 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	const toPath = to.path.toLowerCase();
-  const fromPath = from.path.toLowerCase();
   if (to.matched.some(record => record.meta.requiresAuth)) {
   	// Fields && Preview
     if (Firebase.auth().currentUser) {

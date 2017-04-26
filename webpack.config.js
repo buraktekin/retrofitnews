@@ -2,6 +2,8 @@ var path = require('path')
 var webpack = require('webpack')
 var firebase = require("firebase");
 global.jQuery = require('jquery');
+var $ = global.jQuery;
+window.$ = $;
 
 module.exports = {
   entry: ['babel-polyfill', 'whatwg-fetch', './src/main.js'],
