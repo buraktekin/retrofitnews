@@ -5,6 +5,7 @@ import App from './App.vue'
 import fb from './modules/firebase.js'
 import router from './router.js'
 
+window.$ = $;
 window.Vue = Vue;
 Vue.use(Toast);
 
@@ -18,8 +19,7 @@ Firebase.auth().onAuthStateChanged(() => {
 	  data() {
 	    return { 
 	      data: [],
-	      from: this.$route.from,
-	      to: this.$route.to
+	      user: Firebase.auth().currentUser
 	    }
 	  },
 	  render: h => h(App),

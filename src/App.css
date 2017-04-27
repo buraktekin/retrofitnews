@@ -65,8 +65,9 @@ nav {
 .btn-theme {
   font-family: 'Arvo', serif;
   width: 100%;
-  color: rgba(46, 36, 70, 0.9);
-  border: 1px solid rgb(83, 66, 111);
+  color: rgba(113, 87, 169, 1);
+  background-color: rgba(113, 87, 169, 0.34);
+  border: 1px solid rgba(255, 255, 255, .1);
   outline: none;
   cursor: pointer;
 }
@@ -77,15 +78,16 @@ nav {
 
 .btn-theme:hover {
   color: #FFF;
-  background: rgba(46, 36, 70, 1);
+  background: rgba(113, 87, 169, 0.6);
+  box-shadow: 0 1px 2px rgb(130, 110, 179);
 }
 
 .btn-tooltip {
   position: fixed;
-  top: -5px;
 }
 
-.btn-tooltip:hover > p{
+.btn-tooltip:hover > .tooltip{
+  visibility: visible;
   display: flex;
   opacity: 1;
 }
@@ -113,20 +115,22 @@ nav {
 }
 
 .tooltip {
-  top: 2%;
+  top: 2rem;
   right: 2rem;
   width: 100px;
   padding: 5px 10px !important;
-  position: fixed;
-  text-align: center;
+  position: absolute;
   background: #2e284f;
-  border-radius: 10px;
   box-shadow: 0px 0px 5px rgba(0,0,0,.8);
-  opacity: 0;
-  transition: .5s all ease-in-out;
   font-size: .7rem;
   z-index: 1000;
-  display: none;
+  opacity: 0;
+  transition: .3s ease-in;
+  -webkit-transition-delay: .6s; /* Safari */
+  -moz-transition-delay: .6s; /* Firefox */
+  -o-transition-delay: .6s;
+  transition-delay: .6s;
+  visibility: hidden;
 }
 
 .copied {

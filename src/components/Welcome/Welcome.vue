@@ -72,17 +72,17 @@
 
 	        <div class="col-3 col-sm-1 col-md-4 col-lg-2">
 	        	<div class="icons">
-		        	<div class="row align-items-center text-center">
-	            	<i class="vn-brand-animate fa fa-2x fa-hacker-news"></i>
+		        	<div class="vn-brand-animate row align-items-center text-center">
+	            	<i class="fa fa-2x fa-hacker-news"></i>
 	          	</div>
-	          	<div class="row align-items-center text-center">
-	            	<i class="vn-brand-animate fa fa-2x fa-hacker-news"></i>
+	          	<div class="vn-brand-animate row align-items-center text-center">
+	            	<i class="fa fa-2x fa-hacker-news"></i>
 	          	</div>
-	          	<div class="row align-items-center text-center">
-	            	<i class="vn-brand-animate fa fa-2x fa-hacker-news"></i>
+	          	<div class="vn-brand-animate row align-items-center text-center">
+	            	<i class="fa fa-2x fa-hacker-news"></i>
 	          	</div>
-	          	<div class="row align-items-center text-center">
-	            	<i class="vn-brand-animate fa fa-2x fa-hacker-news"></i>
+	          	<div class="vn-brand-animate row align-items-center text-center">
+	            	<i class="fa fa-2x fa-hacker-news"></i>
 	          	</div>
 	          </div>
 	        </div>

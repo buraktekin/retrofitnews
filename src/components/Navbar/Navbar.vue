@@ -5,60 +5,25 @@
         <img src="../../assets/logo-new-white.png"/>      
       </router-link>
     </div>
-    <div class="mb-2" v-if="isUserActive">
-      <button class="btn btn-md btn-block btn-theme" @click="signOut">Sign Out</button>
+    <div class="navbar-buttons" v-if="isUserActive">
+      <div class="btn-group d-flex flex-row" role="group" aria-label="control buttons">
+        <button type="button" class="btn btn-md btn-theme btn-tooltip">
+          <i class="fa fa-user"><span class="small"> {{ getUser().email }}</span>
+        </button>
+        <button type="button" class="btn btn-md btn-theme btn-tooltip">
+          <i class="fa fa-cog"></i>
+          <p class="theme tooltip">Settings</p>
+        </button>
+        <button type="button" class="btn btn-md btn-theme btn-tooltip" @click="signOut">
+          <i class="fa fa-sign-out"></i>
+          <p class="theme tooltip">Sign Out</p>
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
-<style lang="scss">
-  .navbar-brand {
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    text-align: center;
-    background: rgba(113, 87, 169, 0.2);
-    border: 3px solid rgba(0, 0, 0, 0.9);
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    transition: .7s ease-in-out;
-    pointer-events: none; 
-    img {
-      width: 80%;
-      padding: 0;
-      top: 3rem;
-      left: 0;
-      right: 0;
-      margin: 0 auto;
-      position: relative;
-      pointer-events: all;
-    }
-    &:hover {
-      background: rgba(113, 87, 169, 0.6);
-      box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.6);
-    }
-    h2{ 
-      transition: 1s ease-in-out;
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -50px;
-    }
-  }
-  @media screen and (max-width: 575px) {
-    .navbar-brand {
-      top: 0;
-      width: 100%;
-      height: 100%;
-      opacity: .4;
-      position: fixed;
-    }
-  }
-</style>
+<style lang="scss" src="./Navbar.scss"></style>
 <script type="text/javascript">
   import authHelper from '../Authentication/AuthHelper.js'
 
@@ -70,12 +35,22 @@
       }
     },
     methods: {
-      isUserActive() {
-        return authHelper.Firebase.auth().currentUser ? true : false;
+      getUser() {
+        return authHelper.Firebase.auth().currentUser;
       },
+
+      isUserActive() {
+        return this.getUser() ? true : false;
+      },
+      
       signOut() {
         authHelper.signOut();
       }
+    },
+    mounted() {
+      // $('.btn-tooltip').hover(function(e) {
+      //   console.log($(e.target).find('p')[0]);
+      // });
     }
   }
 </script>

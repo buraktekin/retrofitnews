@@ -15,10 +15,10 @@ export default {
 			$(".fa-hacker-news").each(function() {
 				$(this).delay(2500).animate({ left: 0, opacity: 1 }, 2000);
 			});
-		},
+		}
 	},
 	computed: {},
-	created() {
+	mounted() {
 		this.animateEl();
 	}
 }

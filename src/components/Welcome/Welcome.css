@@ -37,19 +37,19 @@ section {
 	height: 100%;
 }
 
-.vn-brand-animate i{
+.vn-brand-animate > i{
 	padding: 10px;
 	color: rgba(46, 36, 70, 1);
 	font-size: 1.5rem;
 	position: relative;
 }
 
-.slide{
+.vn-brand-animate > .slide{
 	position: relative;
 	z-index: 200;
 }
 
-.fa-hacker-news {
+.vn-brand-animate > .fa-hacker-news {
 	position: relative;
 	opacity: 0;
 	left: -50px;

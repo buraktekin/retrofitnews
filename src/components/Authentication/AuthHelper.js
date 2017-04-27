@@ -22,18 +22,6 @@ var authHelp = {
     });
   },
 
-  getName: function(userData) {
-    switch(userData.providerData[0].providerId) {
-       case 'password':
-         return userData.email.replace(/@.*/, '');
-       // TODO: Auth options should be implemented.
-       case 'twitter':
-         return userData.twitter.displayName;
-       case 'facebook':
-         return userData.facebook.displayName;
-    }
-  },
-
   signInWithPassword: function(email, password) {
     return Firebase.auth().signInWithEmailAndPassword(email, password)
     .then((userData) => {
@@ -61,6 +49,18 @@ var authHelp = {
         flashMessage(error.message, "danger");
       });
     } else {}
+  },
+
+  getName: function(userData) {
+    switch(userData.providerData[0].providerId) {
+       case 'password':
+         return userData.email.replace(/@.*/, '');
+       // TODO: Auth options should be implemented.
+       case 'twitter':
+         return userData.twitter.displayName;
+       case 'facebook':
+         return userData.facebook.displayName;
+    }
   },
 
   // DATABASE 

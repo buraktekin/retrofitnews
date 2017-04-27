@@ -45,7 +45,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  i {
+  .loading > i {
     position: static;
     opacity: 1;
   }

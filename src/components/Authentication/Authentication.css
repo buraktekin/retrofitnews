@@ -43,7 +43,7 @@
 }
 
 .vn-authentication > .navbar-brand {
-	top: 0;
+	top: -3rem;
 	padding: 0;
 	z-index: 20;
 	border: none;
