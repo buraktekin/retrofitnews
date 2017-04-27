@@ -65,7 +65,7 @@ nav {
 .btn-theme {
   font-family: 'Arvo', serif;
   width: 100%;
-  color: rgba(113, 87, 169, 1);
+  color: rgba(199, 176, 249, 0.75);
   background-color: rgba(113, 87, 169, 0.34);
   border: 1px solid rgba(255, 255, 255, .1);
   outline: none;
