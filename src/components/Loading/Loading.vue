@@ -2,8 +2,10 @@
   <div class="top-wrapper" v-if="isLoading">
     <div class="wrapper">
       <div class="loading">
-        <h1>Loading...</h1>
-        <i class="fa fa-hacker-news fa-spinner fa-pulse fa-3x fa-fw" aria-hidden="true"></i><br />
+        <h1 class="display1">
+          <i class="fa fa-hacker-news fa-spinner fa-pulse fa-3x fa-fw"></i><br />
+        </h1>
+        <h3>Loading...</h1>
       </div>
     </div>
   </div>
@@ -14,18 +16,18 @@
     props: [ 'loader' ],
     data() {
       return {
-        isLoading: this.loader
+        isLoading: true
       }
     },
     watch : {
-      loader : function (value) {
-        this.isLoading = value;
+      loader : function() {
+        this.isLoading = this.loader;
       }
     }
   }
 </script>
 
-<style>
+<style scoped>
   .top-wrapper{
     width: 100%;
     height: 100%;
@@ -36,10 +38,15 @@
     z-index: 9999;
   }
   .loading {
-    color: rgba(220, 98, 109, .8);
+    text-align: center;
+    color: rgba(113, 87, 169, 1);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  i {
+    position: static;
+    opacity: 1;
   }
 </style>

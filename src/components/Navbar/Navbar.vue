@@ -66,7 +66,7 @@
     name: 'Navbar',
     data() {
       return {
-        userActive: false,
+        userActive: this.isUserActive(),
       }
     },
     methods: {

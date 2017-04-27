@@ -3,6 +3,8 @@ import Navbar from '../Navbar/Navbar.vue'
 
 export default {
   name: "Preview",
+  components: { Loading, Navbar },
+
   data() {
     return {
       isLoading: true,
@@ -10,7 +12,15 @@ export default {
       results: []
     }
   },
-  components: { Loading, Navbar },
+
+  created() {
+    // TODO: this part should fetch news from DB||Firebase \\
+    setTimeout(() => {
+      this.fetchNews(this.selectedFields)
+      this.isLoading = false;
+    }, 1000);
+  },
+
   methods: {
     copyToClipboard(event) {
       let activeEl = $(event.target).closest('a');
@@ -33,10 +43,11 @@ export default {
       }
       document.body.removeChild(fakeurl);
     },
+    
     fetchNews(array) {
       const news = [];
-      array.data.map(function(x) {
-        const url = `http://hn.algolia.com/api/v1/search_by_date?query=${x.name}&tags=story&hitsPerPage=100`;
+      array.data.map(function(category) {
+        let url = `http://hn.algolia.com/api/v1/search_by_date?query=${category.name}&tags=story&hitsPerPage=100`;
         fetch(url)
         .then((res) => { return res.json() })
         .then((res) => {
@@ -47,13 +58,19 @@ export default {
               response['visible'] = true;
             }
           });
-          res['id'] = x.id;
-          res['icon'] = x.icon;
+          res['id'] = category.id;
+          res['icon'] = category.icon;
           news.push(res);
-        })
+        }).catch(function() {
+          authHelper.flashMessage(
+            "OOPS! Something bad happend and we couldn't provide you the results. Please try again.",
+            "danger"
+          );
+        });
       });
       this.results = news;
     },
+    
     dateTime(item) {
       const date = new Date(item.created_at).toLocaleString().split(',');
       return {
@@ -61,16 +78,10 @@ export default {
         time: date[1]
       }
     },
+    
     filterNews(item) {
       const item_filter = item.name.replace(/ /g,'-');
       $("[id="+item_filter+"]").toggleClass('remove');
     }
-  },
-  created() {
-    // TODO: this part should fetch news from DB||Firebase \\
-    setTimeout(() => {
-      this.fetchNews(this.selectedFields);
-    }, 1000);
-    this.isLoading = false;
   }
 }

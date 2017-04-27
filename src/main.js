@@ -17,7 +17,9 @@ Firebase.auth().onAuthStateChanged(() => {
 	  el: '#app',
 	  data() {
 	    return { 
-	      data: []
+	      data: [],
+	      from: this.$route.from,
+	      to: this.$route.to
 	    }
 	  },
 	  render: h => h(App),

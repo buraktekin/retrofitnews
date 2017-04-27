@@ -10,12 +10,27 @@ var Firebase = fb.Firebase;
 export default {
   name: "Fields",
   components: { Loading, Navbar },
+
   data() {
     return {
       isLoading: true,
       fields: [],
       selectedFields: []
     }
+  },
+
+  created() {
+    fetch('./data.json')
+    .then((res) => { return res.json() })
+    .then((res) => { this.fields = res.data; })
+    .then(()=>{
+      this.isLoading = false;
+    }).catch(function() {
+      authHelper.flashMessage(
+        "OOPS! Something bad happend and we couldn't provide you the results. Please try again.",
+        "danger"
+      );
+    });
   },
 
   methods: {
@@ -35,7 +50,7 @@ export default {
       // TODO: 
       // Decide checking selectedFields has an item inside is important or not?
       this.$root.data = this.selectedFields;
-      Router.push('Preview');
+      Router.push('/preview');
     },
 
     signOut() {
@@ -43,12 +58,17 @@ export default {
     }
   },
 
-  created() {
-    fetch('./data.json')
-    .then((res) => { return res.json() })
-    .then((res) => {
-      this.fields = res.data;
-      this.isLoading = false;
-    });
-  },
+  beforeRouteLeave(to, from, next) {
+    if(this.selectedFields.length > 0) {
+      if(to.fullPath == '/'){
+        authHelper.flashMessage("Please use 'Ready!' button to continue", "warning");
+        next(false);
+      } else {
+        next();
+      }
+    } else {
+      authHelper.flashMessage('Please select at least one category to go on.', 'warning');
+      next(false);
+    }
+  }
 }

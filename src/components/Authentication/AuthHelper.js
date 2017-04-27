@@ -45,14 +45,18 @@ var authHelp = {
   },
 
   onSignedIn: function() {
-    Router.push('/fields');
+    Router.go({
+      path: '/fields'
+    });
   },
 
   signOut: function() {
     if (confirm('Are you sure you want to sign out?')) {
       let flashMessage = this.flashMessage;
       Firebase.auth().signOut().then(function() {
-        window.location.href = '/';
+        Router.go({
+          path: '/'
+        });
       }).catch(function(error) {
         flashMessage(error.message, "danger");
       });

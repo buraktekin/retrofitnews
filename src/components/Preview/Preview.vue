@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="col-sm-12 col-lg-9">
-          <div class="preview" v-if="!isLoading">
+          <div class="preview">
             <div class="featurette-filter mx-auto">
               <a class="btn btn-tooltip mt-2"><i class="fa fa-2x fa-filter"></i><p class="theme tooltip">Filter by Selected Categories</p></a>
               <span class="filter" v-for="filter in selectedFields.data">
