@@ -110,6 +110,7 @@ nav {
 .btn-theme {
   font-family: 'Arvo', serif;
   width: 100%;
+  padding: 7px;
   color: rgba(199, 176, 249, 0.75);
   background-color: rgba(113, 87, 169, 0.34);
   border: 1px solid rgba(255, 255, 255, .1);
@@ -134,11 +135,11 @@ nav {
 .btn-tooltip:hover > .tooltip{
   opacity: 1;
   visibility: visible;
-  transition: .5s ease-in;
-  -webkit-transition-delay: .5s; /* Safari */
-  -moz-transition-delay: .5s; /* Firefox */
-  -o-transition-delay: .5s;
-  transition-delay: .5s;
+  transition: .3s ease-in;
+  -webkit-transition-delay: .75s; /* Safari */
+  -moz-transition-delay: .75s; /* Firefox */
+  -o-transition-delay: .75s;
+  transition-delay: .75s;
 }
 
 .btn-tooltip:not(:hover) > .tooltip {

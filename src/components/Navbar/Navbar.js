@@ -25,13 +25,8 @@ export default {
       return this.getUser() ? true : false;
     },
     
-    signOut() {
+    signOut: function() {
       authHelper.signOut();
     }
-  },
-  mounted() {
-    // $('.btn-tooltip').hover(function(e) {
-    //   console.log($(e.target).find('p')[0]);
-    // });
   }
 }

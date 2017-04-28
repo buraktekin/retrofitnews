@@ -1,9 +1,9 @@
 <template>
-	<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content theme">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">{{ modalTitle }}</h5>
+	        <h5 class="modal-title" id="ModalLabel">{{ modalTitle }}</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -13,7 +13,7 @@
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Cancel</button>
-	        <button type="button" id="modalEvent" class="btn btn-md btn-success" @click="modalEvent">{{ modalFooterButton }}</button>
+	        <button type="button" id="modalEvent" class="btn btn-md btn-success" @click="modalEventHandle">{{ modalButton }}</button>
 	      </div>
 	    </div>
 	  </div>
@@ -24,7 +24,12 @@
 	import authHelper from '../Authentication/AuthHelper.js'
 	export default {
 		name: 'Modal',
-		props: [ 'modalTitle', 'modalBody', 'modalFooterButton', 'modalEvent' ]
+		props: [ 'modalTitle', 'modalBody', 'modalButton', 'modalEvent' ],
+		methods: {
+			modalEventHandle() {
+				this.modalEvent();
+			}
+		}
 	}
 </script>
 

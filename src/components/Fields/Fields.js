@@ -67,8 +67,12 @@ export default {
         next();
       }
     } else {
-      authHelper.flashMessage('Please select at least one category to go on.', 'warning');
-      next(false);
+      if(Firebase.auth().currentUser) {
+        authHelper.flashMessage('Please select at least one category to go on.', 'warning');
+        next(false);
+      } else {
+        next();
+      }
     }
   }
 }

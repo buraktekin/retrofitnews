@@ -1,3 +1,20 @@
+/*
+The Full Navigation Resolution Flow
+
+1. Navigation triggered
+2. Call leave guards in deactivated components
+3. Call global beforeEach guards
+4. Call beforeRouteUpdate guards in reused components (2.2+)
+5. Call beforeEnter in route configs
+6. Resolve async route components
+7. Call beforeRouteEnter in activated components
+8. Call global beforeResolve guards (2.5+)
+9. Navigation confirmed.
+10. Call global afterEach hooks.
+11. DOM updates triggered.
+12. Call callbacks passed to next in beforeRouteEnter guards with instantiated instances.
+*/
+
 const routerRules = {
 	inactiveUser: function(from, to) {
 		// '/' -> '/authentication' is allowed,
@@ -54,6 +71,21 @@ const routerRules = {
 				} else {
 					return true
 				} break;
+		}
+	}
+}
+
+let routerLogic = {
+	inactiveUser: function(fromPath, toPath) {
+		return {
+			path: routerRules.inactiveUser(fromPath, toPath),
+			query: null
+		}
+	},
+	activeUser: function(fromPath, toPath) {
+		return {
+			path: routerRules.activeUser(fromPath, toPath),
+			query: null
 		}
 	}
 }

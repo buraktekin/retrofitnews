@@ -23,7 +23,6 @@ const router = new VueRouter({
 				if (Firebase.auth().currentUser) {
 				  next({
 				    path: '/fields',
-				    redirect: to.path
 				  });
 				} else {
 				  next();
