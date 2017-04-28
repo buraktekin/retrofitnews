@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import fb from './modules/firebase.js'
+import fb from '../modules/firebase.js'
 
-import App from './App.vue'
-import Welcome from './components/Welcome/Welcome.vue'
-import Preview from './components/Preview/Preview.vue'
-import Fields from './components/Fields/Fields.vue'
-import Authentication from './components/Authentication/Authentication.vue'
+import App from '../App.vue'
+import Welcome from '../components/Welcome/Welcome.vue'
+import Preview from '../components/Preview/Preview.vue'
+import Fields from '../components/Fields/Fields.vue'
+import Authentication from '../components/Authentication/Authentication.vue'
 
 Vue.use(VueRouter);
 var Firebase = fb.Firebase;
@@ -49,32 +49,35 @@ const router = new VueRouter({
     	name: 'Fields',
     	path: '/fields', 
     	component: Fields,
-    	meta: { requiresAuth: true }
+    	meta: { requiresAuth: true },
+      beforeEnter: (to, from, next) => {
+        if (Firebase.auth().currentUser) {
+          next();
+        } else {
+          next({
+            path: '/authentication',
+            redirect: to.path
+          });
+        }
+      }
     },
     { 
     	name: 'Preview',
     	path: '/preview', 
     	component: Preview,
-    	meta: { requiresAuth: true }
+    	meta: { requiresAuth: true },
+      beforeEnter: (to, from, next) => {
+        if (Firebase.auth().currentUser) {
+          next();
+        } else {
+          next({
+            path: '/authentication',
+            redirect: to.path
+          });
+        }
+      }
     }
   ]
-});
-
-router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
-  	// Fields && Preview
-    if (Firebase.auth().currentUser) {
-    	next();
-    } else {
-    	next({
-    		path: '/authentication',
-    		query: null
-    	});
-    }
-  } else {
-  	// Authentication && Home
-    next();
-  }
 });
 
 export default router;

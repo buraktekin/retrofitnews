@@ -3,7 +3,8 @@ import Toast from 'vue-easy-toast'
 
 import App from './App.vue'
 import fb from './modules/firebase.js'
-import router from './router.js'
+import router from './router/router.js'
+import store from './store/store.js'
 
 window.$ = $;
 window.Vue = Vue;

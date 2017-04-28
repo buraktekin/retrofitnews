@@ -1,5 +1,5 @@
 import fb from '../../modules/firebase.js'
-import Router from '../../router.js'
+import Router from '../../router/router.js'
 import authHelper from '../Authentication/AuthHelper.js'
 
 import Loading from "../Loading/Loading.vue"

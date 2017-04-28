@@ -1,5 +1,5 @@
 import fb from '../../modules/firebase.js'
-import Router from '../../router.js'
+import Router from '../../router/router.js'
 
 var Firebase = fb.Firebase;
 var Database = fb.Database;
