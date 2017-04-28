@@ -33,7 +33,7 @@ var authHelp = {
   },
 
   onSignedIn: function() {
-    Router.push({
+    Router.go({
       path: '/fields'
     });
   },

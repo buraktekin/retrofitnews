@@ -19,10 +19,10 @@
 	          </div>
 	          <div class="row justify-content-md-center">
 					    <div class="col-6 col-md-auto">
-		        		<router-link to="./authentication#register" class="btn btn-md btn-block btn-transparent">Sign Up</router-link>
+		        		<router-link to="./authentication#register" class="btn btn-md btn-block btn-info">Sign Up</router-link>
 					    </div>
 					    <div class="col-6 col-md-auto">
-		        		<router-link to="./authentication#login" class="btn btn-md btn-block btn-transparent">Sign In</router-link>
+		        		<router-link to="./authentication#login" class="btn btn-md btn-block btn-info">Sign In</router-link>
 					    </div>
 		        </div>
 	        </div>

@@ -62,6 +62,38 @@ nav {
   padding-right: 5px !important;
 }
 
+[class*="-warning"] i {
+  color: rgba(255, 142, 2, 0.86) !important;
+  text-shadow: 0 0 1px rgb(136, 102, 60), 
+              0 0 10px rgba(112, 101, 58, 0.86), 
+              0 0 20px rgba(111, 112, 58, 0.86), 
+              0 0 260px #e6800f !important;
+}
+
+[class*="-danger"] i {
+  color: rgba(255, 19, 19, 0.86) !important;
+  text-shadow: 0 0 1px rgba(112, 58, 58, 0.86), 
+              0 0 10px rgba(112, 58, 58, 0.86), 
+              0 0 20px rgba(112, 58, 58, 0.86), 
+              0 0 260px #ff0000 !important;
+}
+
+[class*="-success"] i {
+  color: rgba(25, 150, 104, 0.86) !important;
+  text-shadow: 0 0 1px rgba(58, 112, 102, 0.86), 
+              0 0 10px rgba(58, 112, 90, 0.86), 
+              0 0 20px rgba(58, 112, 93, 0.86), 
+              0 0 260px #00ffa3 !important;
+}
+
+[class*="-info"] i {
+  color: rgba(153, 105, 249, 0.86) !important;
+  text-shadow: 0 0 1px rgba(76, 58, 112, .86), 
+              0 0 10px rgba(76, 58, 112, .86), 
+              0 0 20px rgba(76, 58, 112, .86) , 
+              0 0 260px #ff00de !important;
+}
+
 .container {
   height: 100%;
 }
@@ -107,6 +139,51 @@ nav {
 }
 
 /* BUTTONS */
+
+[class*="btn-warning"] {
+  border:1px solid rgba(255, 142, 2, 0.86) !important;
+  background: transparent;
+  color: rgba(255, 142, 2, 0.86) !important;
+}
+
+[class*="btn-warning"]:hover {
+ background-color: rgba(255, 142, 2, 0.86) !important; 
+ color: #FFF !important;
+}
+
+[class*="btn-danger"] {
+  border:1px solid rgba(255, 19, 19, 0.86) !important;
+  background: transparent;
+  color: rgba(255, 19, 19, 0.86) !important;
+}
+
+[class*="btn-danger"]:hover {
+ background-color: rgba(255, 19, 19, 0.86) !important; 
+ color: #FFF !important;
+}
+
+[class*="btn-success"] {
+  border:1px solid rgba(25, 150, 104, 0.86) !important;
+  background: transparent;
+  color: rgba(25, 150, 104, 0.86) !important;
+}
+
+[class*="btn-success"]:hover {
+ background-color: rgba(25, 150, 104, 0.86) !important; 
+ color: #FFF !important;
+}
+
+[class*="btn-info"] {
+  border:1px solid rgba(87, 59, 152, .86) !important;
+  background: transparent;
+  color: rgba(87, 59, 152, .86) !important;
+}
+
+[class*="btn-info"]:hover {
+ background-color: rgba(87, 59, 152, 1) !important; 
+ color: #FFF !important;
+}
+
 .btn-theme {
   font-family: 'Arvo', serif;
   width: 100%;
@@ -162,3 +239,35 @@ nav {
   color: rgba(21, 103, 109, 1) !important;
 }
 /* END of BUTTONS */
+
+/* TOASTER */
+#toast {
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  max-width: 300px;
+  background: rgba(0,0,0,0.86);
+}
+
+#toast span {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+
+#toast i{
+  position: relative;
+  margin: 0 10px;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  border: none;
+  text-decoration: normal;
+  text-align: center;
+  -o-text-overflow: clip;
+  text-overflow: clip;
+  white-space: pre;
+}
+/* END OF TOASTER */

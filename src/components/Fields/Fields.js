@@ -38,7 +38,6 @@ export default {
       const temp = this.fields[index];
       temp.isActive = !temp.isActive;
       temp.isActive ? this.selectedFields.push(temp) : this.removeField(temp.id);
-      console.log(this.selectedFields.length)
     },
 
     removeField(id) {
