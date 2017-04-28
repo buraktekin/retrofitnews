@@ -39,16 +39,13 @@ var authHelp = {
   },
 
   signOut: function() {
-    if (confirm('Are you sure you want to sign out?')) {
-      let flashMessage = this.flashMessage;
-      Firebase.auth().signOut().then(function() {
-        Router.go({
-          path: '/'
-        });
-      }).catch(function(error) {
-        flashMessage(error.message, "danger");
+    Firebase.auth().signOut().then(function() {
+      Router.go({
+        path: '/'
       });
-    } else {}
+    }).catch(function(error) {
+      flashMessage(error.message, "danger");
+    });
   },
 
   getName: function(userData) {
