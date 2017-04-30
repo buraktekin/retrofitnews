@@ -1,11 +1,12 @@
 import fb from '../../modules/firebase.js'
 import Router from '../../router/router.js'
 import authHelper from '../Authentication/AuthHelper.js'
+import store from '../../store/store.js'
 
 import Loading from "../Loading/Loading.vue"
 import Navbar from "../Navbar/Navbar.vue"
 
-var Firebase = fb.Firebase;
+let Store = store.state
 
 export default {
   name: "Fields",
@@ -15,19 +16,21 @@ export default {
     return {
       isLoading: true,
       fields: [],
-      selectedFields: []
+      selectedFields: Store.selections
     }
   },
 
   created() {
-    fetch('./data.json')
-    .then((res) => { return res.json() })
-    .then((res) => { this.fields = res.data; })
-    .then(()=>{
+    authHelper.Database.ref('/data').once('value').then(function(snapshot) {
+      return snapshot.val();
+    }).then((res) => {
+      this.fields = res;
+    }).then(() => {
       this.isLoading = false;
-    }).catch(function() {
+    })
+    .catch(function() {
       authHelper.flashMessage(
-        "OOPS! Something bad happend and we couldn't provide you the results. Please try again.",
+        "OOPS! Something bad happend and we couldn't provide you the results. Please try again later.",
         "danger"
       );
     });
@@ -37,18 +40,14 @@ export default {
     selectField(event, index) {
       const temp = this.fields[index];
       temp.isActive = !temp.isActive;
-      temp.isActive ? this.selectedFields.push(temp) : this.removeField(temp.id);
-    },
-
-    removeField(id) {
-      const index = this.selectedFields.findIndex(item => item.id === id);
-      this.selectedFields.splice(index, 1)[0];
+      temp.isActive ? store.setNewField(temp) : store.removeField(temp);
     },
 
     submitSelection() {
       // TODO: 
       // Decide checking selectedFields has an item inside is important or not?
-      this.$root.data = this.selectedFields;
+      let user = authHelper.isUserLoggedIn();
+      authHelper.updateUserData(user.uid, authHelper.getName(user), user.email, this.selectedFields);
       Router.push('/preview');
     },
 
@@ -66,7 +65,7 @@ export default {
         next();
       }
     } else {
-      if(Firebase.auth().currentUser) {
+      if(authHelper.isUserLoggedIn()) {
         authHelper.flashMessage('Please select at least one category to go on.', 'warning');
         next(false);
       } else {

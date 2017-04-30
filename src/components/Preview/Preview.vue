@@ -23,7 +23,7 @@
           <div class="preview">
             <div class="featurette-filter mx-auto">
               <a class="btn btn-tooltip mt-2"><i class="fa fa-2x fa-filter"></i><p class="theme tooltip">Filter by Selected Categories</p></a>
-              <span class="filter" v-for="filter in selectedFields.data">
+              <span class="filter" v-for="filter in selectedFields">
                 <a :id="filter.name.replace(/ /g, '-')" class="btn btn-xs btn-filter" @click="filterNews(filter)">
                   <i :class="filter.icon"></i>
                   <p class="text-truncate">{{ filter.name }}</p>

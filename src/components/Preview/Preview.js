@@ -1,5 +1,9 @@
+import store from '../../store/store.js'
+
 import Loading from '../Loading/Loading.vue'
 import Navbar from '../Navbar/Navbar.vue'
+
+let Store = store.state
 
 export default {
   name: "Preview",
@@ -8,7 +12,7 @@ export default {
   data() {
     return {
       isLoading: true,
-      selectedFields: this.$root.$data,
+      selectedFields: Store.selections,
       results: []
     }
   },
@@ -46,7 +50,7 @@ export default {
     
     fetchNews(array) {
       const news = [];
-      array.data.map(function(category) {
+      array.map(function(category) {
         let url = `http://hn.algolia.com/api/v1/search_by_date?query=${category.name}&tags=story&hitsPerPage=100`;
         fetch(url)
         .then((res) => { return res.json() })

@@ -2,7 +2,7 @@ import authHelper from '../Authentication/AuthHelper.js'
 
 import Modal from '../Modal/Modal.vue'
 
-export default {
+export default {
   name: 'Navbar',
   data() {
     return {
@@ -15,10 +15,15 @@ export default {
       }
     }
   },
+  watch: {
+    userActive: function() {
+      this.isUserActive;
+    }
+  },
   components: { Modal },
   methods: {
-    getUser() {
-      return authHelper.Firebase.auth().currentUser;
+    getUser() {
+      return authHelper.isUserLoggedIn() || { "email": "" };
     },
 
     isUserActive() {

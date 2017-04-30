@@ -1,18 +1,20 @@
 import fb from '../../modules/firebase.js'
 import Router from '../../router/router.js'
-
-var Firebase = fb.Firebase;
-var Database = fb.Database;
+import store from '../../store/store.js'
 
 var authHelp = {
   Firebase: fb.Firebase,
   Database: fb.Database,
+  Store: store.state,
 
   firebaseAuth: function(email, password) {
     let errorHandle = this.flashMessage;
-    Firebase.auth().createUserWithEmailAndPassword(email, password)
+    this.Firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userData) => {
-      this.writeUserData(userData.uid, this.getName(userData), userData.email);
+      console.log(this.Store.selections);
+      this.writeUserData(userData.uid, this.getName(userData), userData.email, "");
+    })
+    .then((userData) => {
       this.signInWithPassword(email, password);
     }).catch(function(error) {
       // Handle Errors here.
@@ -23,8 +25,8 @@ var authHelp = {
   },
 
   signInWithPassword: function(email, password) {
-    return Firebase.auth().signInWithEmailAndPassword(email, password)
-    .then((userData) => {
+    return this.Firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(() => {
       this.onSignedIn();
     }).catch((error) => { 
       this.errorMessage = error.message;
@@ -39,13 +41,17 @@ var authHelp = {
   },
 
   signOut: function() {
-    Firebase.auth().signOut().then(function() {
+    this.Firebase.auth().signOut().then(function() {
       Router.go({
         path: '/'
       });
     }).catch(function(error) {
       flashMessage(error.message, "danger");
     });
+  },
+
+  isUserLoggedIn: function() {
+    return this.Firebase.auth().currentUser;
   },
 
   getName: function(userData) {
@@ -61,10 +67,20 @@ var authHelp = {
   },
 
   // DATABASE 
-  writeUserData: function(userId, name, email) {
-    Database.ref('users/' + userId).set({
-      'username': name,
-      'email': email
+  updateUserData: function(uid, name, email, fields) {
+    // Get a key for a new User.
+    var updates = {};
+    var userData = { uid, name, email, fields };
+    updates['/users/' + uid] = userData;
+    return this.Database.ref().update(updates);
+  },
+
+  writeUserData: function(uid, name, email, fields) {
+    return this.Database.ref('/users/' + uid).set({
+      uid,
+      name,
+      email,
+      fields
     });
   },
   // END of DATABASE

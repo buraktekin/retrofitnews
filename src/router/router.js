@@ -9,7 +9,7 @@ import Fields from '../components/Fields/Fields.vue'
 import Authentication from '../components/Authentication/Authentication.vue'
 
 Vue.use(VueRouter);
-var Firebase = fb.Firebase;
+let Firebase = fb.Firebase;
 
 const router = new VueRouter({
 	mode: 'history',
