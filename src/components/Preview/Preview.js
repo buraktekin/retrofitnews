@@ -3,7 +3,7 @@ import store from '../../store/store.js'
 import Loading from '../Loading/Loading.vue'
 import Navbar from '../Navbar/Navbar.vue'
 
-let Store = store.state
+let Store = store.state;
 
 export default {
   name: "Preview",

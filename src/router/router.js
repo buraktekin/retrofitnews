@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import fb from '../modules/firebase.js'
+import store from '../store/store.js'
 
 import App from '../App.vue'
 import Welcome from '../components/Welcome/Welcome.vue'
-import Preview from '../components/Preview/Preview.vue'
 import Fields from '../components/Fields/Fields.vue'
 import Authentication from '../components/Authentication/Authentication.vue'
+import Preview from '../components/Preview/Preview.vue'
 
 Vue.use(VueRouter);
 let Firebase = fb.Firebase;
+var Store = store.state;
 
 const router = new VueRouter({
 	mode: 'history',
@@ -50,16 +52,7 @@ const router = new VueRouter({
     	path: '/fields', 
     	component: Fields,
     	meta: { requiresAuth: true },
-      beforeEnter: (to, from, next) => {
-        if (Firebase.auth().currentUser) {
-          next();
-        } else {
-          next({
-            path: '/authentication',
-            redirect: to.path
-          });
-        }
-      }
+      // Navigation Guards implemented into the component.
     },
     { 
     	name: 'Preview',

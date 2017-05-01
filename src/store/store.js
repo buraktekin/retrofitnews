@@ -8,8 +8,8 @@ var store = {
   },
   removeField (field) {
   	const index = this.state.selections.findIndex(item => item.id === field.id);
-    this.state.selections.splice(index, 1)[0];
+    this.state.selections.splice(index, 1);
   }
-}
+};
 
 export default store;

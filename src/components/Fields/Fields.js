@@ -16,7 +16,7 @@ export default {
     return {
       isLoading: true,
       fields: [],
-      selectedFields: Store.selections
+      selectedFields: store.state.selections
     }
   },
 
@@ -27,8 +27,7 @@ export default {
       this.fields = res;
     }).then(() => {
       this.isLoading = false;
-    })
-    .catch(function() {
+    }).catch(function() {
       authHelper.flashMessage(
         "OOPS! Something bad happend and we couldn't provide you the results. Please try again later.",
         "danger"
@@ -41,11 +40,10 @@ export default {
       const temp = this.fields[index];
       temp.isActive = !temp.isActive;
       temp.isActive ? store.setNewField(temp) : store.removeField(temp);
+      this.selectedFields = store.state.selections
     },
 
     submitSelection() {
-      // TODO: 
-      // Decide checking selectedFields has an item inside is important or not?
       let user = authHelper.isUserLoggedIn();
       authHelper.updateUserData(user.uid, authHelper.getName(user), user.email, this.selectedFields);
       Router.push('/preview');
@@ -53,6 +51,29 @@ export default {
 
     signOut() {
       authHelper.signOut();
+    }
+  },
+
+  // Navigation Guards
+  beforeRouteEnter: (to, from, next) => {
+    if (authHelper.isUserLoggedIn()) {
+      next(vm => {
+        setTimeout(() => {
+          if(vm.selectedFields.length > 0) {
+            return {
+              path: 'preview',
+              redirect: to.path
+            }
+          } else {
+            return {};
+          }
+        }, 1000);
+      });
+    } else {
+      next({ 
+        path: '/authentication',
+        redirect: to.path
+      });
     }
   },
 
@@ -65,7 +86,7 @@ export default {
         next();
       }
     } else {
-      if(authHelper.isUserLoggedIn()) {
+      if(authHelper.isUserActive()) {
         authHelper.flashMessage('Please select at least one category to go on.', 'warning');
         next(false);
       } else {
@@ -73,4 +94,5 @@ export default {
       }
     }
   }
+  // End of Navigation Guards
 }

@@ -1,17 +1,15 @@
 import fb from '../../modules/firebase.js'
 import Router from '../../router/router.js'
-import store from '../../store/store.js'
 
 var authHelp = {
   Firebase: fb.Firebase,
   Database: fb.Database,
-  Store: store.state,
 
+  // AUTHENTICATION
   firebaseAuth: function(email, password) {
     let errorHandle = this.flashMessage;
     this.Firebase.auth().createUserWithEmailAndPassword(email, password)
     .then((userData) => {
-      console.log(this.Store.selections);
       this.writeUserData(userData.uid, this.getName(userData), userData.email, "");
     })
     .then((userData) => {
@@ -26,7 +24,7 @@ var authHelp = {
 
   signInWithPassword: function(email, password) {
     return this.Firebase.auth().signInWithEmailAndPassword(email, password)
-    .then(() => {
+    .then((user) => { 
       this.onSignedIn();
     }).catch((error) => { 
       this.errorMessage = error.message;
@@ -35,7 +33,7 @@ var authHelp = {
   },
 
   onSignedIn: function() {
-    Router.go({
+    Router.push({
       path: '/fields'
     });
   },
@@ -53,6 +51,7 @@ var authHelp = {
   isUserLoggedIn: function() {
     return this.Firebase.auth().currentUser;
   },
+  // End of AUTHENTICATION
 
   getName: function(userData) {
     switch(userData.providerData[0].providerId) {
@@ -72,7 +71,12 @@ var authHelp = {
     var updates = {};
     var userData = { uid, name, email, fields };
     updates['/users/' + uid] = userData;
-    return this.Database.ref().update(updates);
+    return this.Database.ref().update(updates)
+    .then(function() {
+      console.log("Update succsessfull!", "success");
+    }, function(error) {
+      this.flashMessage(error.message, "danger");
+    });
   },
 
   writeUserData: function(uid, name, email, fields) {
@@ -82,6 +86,19 @@ var authHelp = {
       email,
       fields
     });
+  },
+
+  readUserData: function(path, container) {
+    return this.Database.ref(path).once('value').then(function(snapshot) {
+      snapshot.val().forEach(function(snap) {
+        container.push(snap);
+      });
+    }, function(error) {
+      this.flashMessage(error.message, "danger");
+    });
+  },
+
+  getStoredData: function() {
   },
   // END of DATABASE
 

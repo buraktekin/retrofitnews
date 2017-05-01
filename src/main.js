@@ -12,20 +12,35 @@ Vue.use(Toast);
 
 var Firebase = authHelper.Firebase;
 Firebase.auth().onAuthStateChanged((user) => {
-	if(user) {
-		authHelper.Database.ref('/users/' + user.uid).once('value').then(function(snapshot) {
-			console.log(user.uid, snapshot.val());
-		});
-	}
 	// check user's authentication status
 	// Initialize New Vue Object
 	new Vue({
 	  el: '#app',
 	  data() {
 	    return { 
-	      state: store.state,
-	      user
+	    	user,
+	      state: this.fetchData(),
+	      selectionsDone: false
 	    }
+	  },
+	  methods: {
+	  	fetchData() {
+	  		if(user) {
+	  			authHelper.Database.ref('/users/' + user.uid).once('value')
+	  			.then(function(snapshot) {
+	  				snapshot.val().fields.forEach(snap => {
+	  					store.state.selections.push(snap);
+	  				});
+	  			}).catch(function() {
+	  				authHelper.flashMessage(
+	  					"OOPS! Something bad happend and we couldn't \
+	  					provide you the results. Please try again later.",
+	  					"danger"
+	  				);
+	  			});
+	  		}
+	  		return store.state.selections;
+	  	}
 	  },
 	  render: h => h(App),
 	  router
