@@ -1,7 +1,7 @@
 import fb from '../../modules/firebase.js'
-import Router from '../../router/router.js'
-import authHelper from '../Authentication/AuthHelper.js'
 import store from '../../store/store.js'
+import authHelper from '../Authentication/AuthHelper.js'
+import Router from '../../router/router.js'
 
 import Loading from "../Loading/Loading.vue"
 import Navbar from "../Navbar/Navbar.vue"
@@ -10,7 +10,10 @@ let Store = store.state
 
 export default {
   name: "Fields",
-  components: { Loading, Navbar },
+  components: {
+    Loading,
+    Navbar
+  },
 
   data() {
     return {
@@ -26,7 +29,9 @@ export default {
     }).then((res) => {
       this.fields = res;
     }).then(() => {
-      this.isLoading = false;
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000)
     }).catch(function() {
       authHelper.flashMessage(
         "OOPS! Something bad happend and we couldn't provide you the results. Please try again later.",
@@ -46,7 +51,7 @@ export default {
     submitSelection() {
       let user = authHelper.isUserLoggedIn();
       authHelper.updateUserData(user.uid, authHelper.getName(user), user.email, this.selectedFields);
-      Router.push('/preview');
+      Router.go('/preview');
     },
 
     signOut() {
@@ -54,44 +59,30 @@ export default {
     }
   },
 
-  // Navigation Guards
-  beforeRouteEnter: (to, from, next) => {
-    if (authHelper.isUserLoggedIn()) {
-      next(vm => {
-        setTimeout(() => {
-          if(vm.selectedFields.length > 0) {
-            return {
-              path: 'preview',
-              redirect: to.path
-            }
-          } else {
-            return {};
-          }
-        }, 1000);
-      });
-    } else {
-      next({ 
-        path: '/authentication',
-        redirect: to.path
-      });
-    }
+  // TODO: Revision needed.
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      setTimeout(() => {
+        if (vm.selectedFields.length > 0) {
+          vm.$router.push('/preview');
+        } else {
+          vm.$router.push('/fields');
+        }
+      }, 1000)
+    })
   },
 
   beforeRouteLeave(to, from, next) {
-    if(this.selectedFields.length > 0) {
-      if(to.fullPath == '/'){
-        authHelper.flashMessage("Please use 'Ready!' button to continue", "warning");
+    if(this.selectedFields.length > 0) {
+      if (to.matched.some(record => !record.meta.requiresAuth)){
         next(false);
-      } else {
-        next();
+        authHelper.flashMessage("Please use 'Ready!' button to go.", "warning");
+      } else {
+        next();        
       }
     } else {
-      if(authHelper.isUserActive()) {
-        authHelper.flashMessage('Please select at least one category to go on.', 'warning');
-        next(false);
-      } else {
-        next();
-      }
+      next(false);
+      authHelper.flashMessage("You should choose at least 1 field to go on.", "warning");
     }
   }
   // End of Navigation Guards

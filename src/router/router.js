@@ -14,63 +14,73 @@ let Firebase = fb.Firebase;
 var Store = store.state;
 
 const router = new VueRouter({
-	mode: 'history',
-  routes: [
+  mode: 'history',
+  routes: [{
+      name: 'Welcome',
+      path: '/',
+      component: Welcome,
+      meta: {
+        requiresAuth: false,
+        allowed: ['/', '/authentication']
+      }
+    },
+
     {
-    	name: 'Welcome',
-    	path: '/',
-    	component: Welcome,
-    	meta: { requiresAuth: false },
-    	beforeEnter: (to, from, next) => {
-				if (Firebase.auth().currentUser) {
-				  next({
-				    path: '/fields',
-				  });
-				} else {
-				  next();
-				}
-			}
+      name: 'Auth',
+      path: '/authentication',
+      component: Authentication,
+      meta: {
+        requiresAuth: false,
+        allowed: ['/', '/authentication', '/fields', '/preview']
+      }
     },
-    { 
-    	name: 'Auth',
-    	path: '/authentication', 
-    	component: Authentication,
-    	meta: { requiresAuth: false },
-    	beforeEnter: (to, from, next) => {
-				if (Firebase.auth().currentUser) {
-				  next({
-				    path: '/fields',
-				    redirect: to.path
-				  });
-				} else {
-				  next();
-				}
-			}
-    },
-    { 
-    	name: 'Fields',
-    	path: '/fields', 
-    	component: Fields,
-    	meta: { requiresAuth: true },
+
+    {
+      name: 'Fields',
+      path: '/fields',
+      component: Fields,
+      meta: {
+        requiresAuth: true,
+        allowed: ['/', '/fields', '/preview']
+      }
       // Navigation Guards implemented into the component.
     },
-    { 
-    	name: 'Preview',
-    	path: '/preview', 
-    	component: Preview,
-    	meta: { requiresAuth: true },
-      beforeEnter: (to, from, next) => {
-        if (Firebase.auth().currentUser) {
-          next();
-        } else {
-          next({
-            path: '/authentication',
-            redirect: to.path
-          });
-        }
+
+    {
+      name: 'Preview',
+      path: '/preview',
+      component: Preview,
+      meta: {
+        requiresAuth: true,
+        allowed: ['/', 'preview']
+      }
+      // Navigation Guards implemented into the component.
+    }
+  ],
+});
+
+router.beforeEach((to, from, next) => {
+  if (!Firebase.auth().currentUser) {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      // TO AUTH REQUIRED + USER NOT ACTIVE
+      next('/authentication');
+    } else {
+      // TO AUTH NOT REQUIRED + USER NOT ACTIVE
+      next();
+    }
+  } else {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      // TO AUTH REQUIRED + USER ACTIVE
+      next();
+    } else {
+      // TO AUTH NOT REQUIRED + USER ACTIVE
+      if(store.state.selections.lenght > 0){
+        router.push('/preview');
+      } else {
+        router.push('/fields');
       }
     }
-  ]
+  }
 });
 
 export default router;

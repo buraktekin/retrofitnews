@@ -1,7 +1,7 @@
 <template>
   <div id="fields">
-    <div class="container">
-      <loading :loader="isLoading"></loading>
+    <loading :loader="isLoading"></loading>
+    <div class="container" v-if="!isLoading">
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
           <div class="featurette">
@@ -22,7 +22,7 @@
           <div class="done" v-if="selectedFields.length > 0">
             <a class="btn btn-default btn-md btn-done" @click="submitSelection">Ready!</a>
           </div>
-          <div class="fields" v-if="!isLoading">
+          <div class="fields">
             <div class="row">
               <div class="col-6 col-sm-12 col-md-4 col-lg-3 col-xl-2" v-for="(field, index) in fields">
                 <div class="card card-fields theme text-center" v-bind:class="{ active: field.isActive }" v-on:click="selectField($event,index)">

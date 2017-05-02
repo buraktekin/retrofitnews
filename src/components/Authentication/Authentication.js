@@ -1,3 +1,5 @@
+import authHelper from './AuthHelper.js'
+
 import Register from './Register/Register.vue'
 import Login from './Login/Login.vue'
 

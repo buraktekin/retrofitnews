@@ -1,7 +1,7 @@
 <template>
   <div id="preview">
-    <div class="container">
-      <loading :loader="isLoading"></loading>
+    <loading :loader="isLoading"></loading>
+    <div class="container" v-if="!isLoading">
       <div class="row">
         <div class="col-lg-3">
           <div class="featurette">

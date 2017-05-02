@@ -1,4 +1,5 @@
 import store from '../../store/store.js'
+import authHelper from '../Authentication/AuthHelper.js'
 
 import Loading from '../Loading/Loading.vue'
 import Navbar from '../Navbar/Navbar.vue'
@@ -18,7 +19,6 @@ export default {
   },
 
   created() {
-    // TODO: this part should fetch news from DB||Firebase \\
     setTimeout(() => {
       this.fetchNews(this.selectedFields)
       this.isLoading = false;
@@ -87,5 +87,23 @@ export default {
       const item_filter = item.name.replace(/ /g,'-');
       $("[id="+item_filter+"]").toggleClass('remove');
     }
+  },
+
+  // Navigation Guards
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      if(vm.selectedFields.length > 0) {
+        vm.$router.push(to.path);
+      } else {
+        vm.$router.push('/fields');
+      }
+    })
+  },
+
+  beforeRouteLeave(to, from, next) {
+    next(false);
+    authHelper.flashMessage("<p>You can use <b class='fa fa-cog text-success'></b>\
+     - (Settings) - button to make changes.</p>", "info");
   }
+  // End of Navigation Guards
 }

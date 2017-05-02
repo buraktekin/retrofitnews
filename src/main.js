@@ -15,34 +15,37 @@ Firebase.auth().onAuthStateChanged((user) => {
 	// check user's authentication status
 	// Initialize New Vue Object
 	new Vue({
-	  el: '#app',
-	  data() {
-	    return { 
-	    	user,
-	      state: this.fetchData(),
-	      selectionsDone: false
-	    }
-	  },
-	  methods: {
-	  	fetchData() {
-	  		if(user) {
-	  			authHelper.Database.ref('/users/' + user.uid).once('value')
-	  			.then(function(snapshot) {
-	  				snapshot.val().fields.forEach(snap => {
-	  					store.state.selections.push(snap);
-	  				});
-	  			}).catch(function() {
-	  				authHelper.flashMessage(
-	  					"OOPS! Something bad happend and we couldn't \
-	  					provide you the results. Please try again later.",
-	  					"danger"
-	  				);
-	  			});
-	  		}
-	  		return store.state.selections;
-	  	}
-	  },
-	  render: h => h(App),
-	  router
+		el: '#app',
+		data() {
+			return {
+				user,
+				state: this.fetchData()
+			}
+		},
+		methods: {
+			fetchData() {
+				if (!user) {
+					return  [];
+				};
+				return authHelper.Database.ref('/users/' + user.uid).once('value')
+					.then(function(snapshot) {
+						if (snapshot.val().fields.length > 0) {
+							snapshot.val().fields.forEach(snap => {
+								store.state.selections.push(snap);
+							});
+						} else {
+							store.state.selections = [];
+						}
+					}).catch(function() {
+						authHelper.flashMessage(
+							"OOPS! Something bad happend and we couldn't \
+							provide you the results. Please try again later.",
+							"danger"
+						);
+					});
+			}
+		},
+		render: h => h(App),
+		router
 	});
 });
