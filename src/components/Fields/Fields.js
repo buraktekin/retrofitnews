@@ -29,9 +29,7 @@ export default {
     }).then((res) => {
       this.fields = res;
     }).then(() => {
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 1000)
+      this.isLoading = false;
     }).catch(function() {
       authHelper.flashMessage(
         "OOPS! Something bad happend and we couldn't provide you the results. Please try again later.",
@@ -57,33 +55,5 @@ export default {
     signOut() {
       authHelper.signOut();
     }
-  },
-
-  // TODO: Revision needed.
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      setTimeout(() => {
-        if (vm.selectedFields.length > 0) {
-          vm.$router.push('/preview');
-        } else {
-          vm.$router.push('/fields');
-        }
-      }, 1000)
-    })
-  },
-
-  beforeRouteLeave(to, from, next) {
-    if(this.selectedFields.length > 0) {
-      if (to.matched.some(record => !record.meta.requiresAuth)){
-        next(false);
-        authHelper.flashMessage("Please use 'Ready!' button to go.", "warning");
-      } else {
-        next();        
-      }
-    } else {
-      next(false);
-      authHelper.flashMessage("You should choose at least 1 field to go on.", "warning");
-    }
   }
-  // End of Navigation Guards
 }

@@ -35,13 +35,9 @@ var authHelp = {
 
   onSignedIn: function() {
     if (store.state.selections.length > 0) {
-      Router.go({
-        path: '/preview'
-      });
+      Router.go('/preview');
     } else {
-      Router.go({
-        path: '/fields'
-      });
+      Router.go('/fields');
     }
   },
 
@@ -105,7 +101,7 @@ var authHelp = {
   flashMessage: function(errorMessage, errorType) {
       Vue.toast('<i class="fa fa-exclamation-triangle fa-3x"></i>' + errorMessage, {
         id: "toast",
-        duration: 3000,
+        duration: 5000,
         className: ['vn-toast', 'toast-'.concat(errorType)]
       });
     }

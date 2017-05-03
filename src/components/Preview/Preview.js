@@ -19,10 +19,11 @@ export default {
   },
 
   created() {
-    setTimeout(() => {
-      this.fetchNews(this.selectedFields)
-      this.isLoading = false;
-    }, 1000);
+    this.fetchNews(this.selectedFields);
+  },
+
+  mounted() {
+    this.isLoading = false;
   },
 
   methods: {
@@ -90,16 +91,6 @@ export default {
   },
 
   // Navigation Guards
-  beforeRouteEnter(to, from, next) {
-    next(vm => {
-      if(vm.selectedFields.length > 0) {
-        vm.$router.push(to.path);
-      } else {
-        vm.$router.push('/fields');
-      }
-    })
-  },
-
   beforeRouteLeave(to, from, next) {
     next(false);
     authHelper.flashMessage("<p>You can use <b class='fa fa-cog text-success'></b>\
