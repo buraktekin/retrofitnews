@@ -62,7 +62,7 @@ const router = new VueRouter({
           } else {
             next();
           }
-        }, 500);
+        }, 1000);
       }
     },
 
@@ -80,7 +80,7 @@ const router = new VueRouter({
           } else {
             next()
           }
-        }, 500);
+        }, 1000);
       }
     }
   ],
