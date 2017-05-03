@@ -5,7 +5,7 @@
         <h1 class="display1">
           <i class="fa fa-hacker-news fa-spinner fa-pulse fa-3x fa-fw"></i><br />
         </h1>
-        <h3>Loading...</h1>
+        <h3>Loading...</h3>
       </div>
     </div>
   </div>
