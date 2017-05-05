@@ -46,6 +46,13 @@ Firebase.auth().onAuthStateChanged((user) => {
 			}
 		},
 		render: h => h(App),
-		router
+		router,
+		watch: {
+    	'$route' (to, from) {
+    		const toDepth = to.path.split('/').length
+    		const fromDepth = from.path.split('/').length
+    		this.transitionName = toDepth < fromDepth ? 'slide-right' : 'slide-left'
+		  }
+		},
 	});
 });

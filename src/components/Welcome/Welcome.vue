@@ -14,7 +14,7 @@
 	            <h2 class="display-5">For those who seek getting top latest news about their interests.</h2>
 	            <p class="mt-3">
 	              <b>Welcome to VueNews</b>
-	              <p>VueNews is one of the <i>Hackernews</i> clients which is created for people want to follow only specific topics.</p>
+	              <p>VueNews is a <i>Hackernews</i> client which is created for people want to follow only specific topics.</p>
 	            </p>
 	          </div>
 	          <div class="row justify-content-md-center">
