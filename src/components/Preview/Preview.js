@@ -52,7 +52,7 @@ export default {
     fetchNews(array) {
       const news = [];
       array.map(function(category) {
-        let url = `http://hn.algolia.com/api/v1/search_by_date?query=${category.name}&tags=story&hitsPerPage=100`;
+        let url = `https://hn.algolia.com/api/v1/search_by_date?query=${category.name}&tags=story&hitsPerPage=100`;
         fetch(url)
         .then((res) => { return res.json() })
         .then((res) => {
