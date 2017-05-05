@@ -1,6 +1,7 @@
-# Retrofitnews
+# Retrofitnews [WIP]
 
-> Modernized view for HackerNews
+### Modernized view for HackerNews
+:tada: v0.0.1 about to arrive! :tada:
 
 ## Build Setup
 
