@@ -3,6 +3,7 @@
   background-size: cover !important;
   background-repeat: no-repeat;
 }
+
 #preview::before {
   left: 0;
   top: 0;
@@ -11,7 +12,8 @@
   height: 100%;
   content: ' ';
   background: rgba(0,0,0,0.6) !important;
-} 
+}
+
 .preview {
   width: 100%;
   height: 100vh;
@@ -21,35 +23,43 @@
   /*box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.8);*/
   background-color: rgba(0, 0, 0, 0);
 }
+
 .news-container > .list-group.remove{
   display: none;
 }
+
 .list-group {
   box-shadow: 0px 0px 40px rgba(0,0,0,0.5);
 }
+
 .list-group-item {
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(111, 120, 170, 0.5);
 }
+
 .news-category {
   background-color: rgba(45, 38, 78, 0.8);
   border: 1px solid rgba(46, 40, 84, 1);
 }
+
 .news-container {
-  padding: 50px;
   width: 100%;
   text-align: left;
 }
+
 .news-header {
   width: 100%;
 }
+
 .news-content {
   width: 100%;
 }
+
 .news-footer {
   width: 100%;
 }
+
 .news-footer a{
   top: 50%;
   transform: translateY(-50%);
@@ -62,10 +72,13 @@
   position: absolute;
   border: 1px solid rgba(78, 88, 177, 0.5);
   border-radius: 100%;
+  cursor: crosshair;
 }
+
 .news-footer a:hover{
   border: 1px solid rgba(78, 88, 177, 1);
 }
+
 .card {
   margin: 10px;
   text-align: left;
@@ -73,45 +86,50 @@
   border: 1px solid #d5d5d5;
   background-color: rgba(255, 255, 255, 0.6);
 }
+
 .btn-filter {
-  cursor: pointer;
+  cursor:  url(favicon.png) 2 2, pointer;
   margin: 3px;
   padding: 10px 3px;
-  width: 55px;
+  width: 60px;
   color: #fff;
   background-color: rgba(24, 239, 194, 0.37);
 }
+
 .btn-filter p {
   font-size: x-small;
 }
+
 .btn-filter:focus {
   outline: none;
   box-shadow: none;
   border: none;
 }
+
 .featurette-container {
   position: absolute;
   top: 30%;
 }
+
 .featurette-filter {
-  top: 55px;
-  padding-bottom: 55px;
+  top: 0;
   right: 0;
+  width: 100%;
   height: 100%;
   display: flex;
-  position: fixed;
+  position: absolute;
   flex-direction: column;
   overflow-y: scroll; 
-  margin: 0 10px;
-  border-bottom: 1px solid #FFF;
-  border-top: 1px solid #FFF;
 }
+
 .tooltip{
   top: 1rem;
 }
+
 p.urls {
   display: none;
 }
+
 span.filter > a.remove {
   background: rgba(247, 46, 46, 0.78) !important;
 }

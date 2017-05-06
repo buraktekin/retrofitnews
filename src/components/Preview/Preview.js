@@ -85,7 +85,7 @@ export default {
     },
     
     filterNews(item) {
-      const item_filter = item.name.replace(/ /g,'-');
+      const item_filter = item.query.replace(/ /g,'-');
       $(`[id="${item_filter}"]`).toggleClass('remove');
     }
   },

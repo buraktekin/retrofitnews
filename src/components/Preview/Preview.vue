@@ -21,16 +21,15 @@
         </div>
         <div class="col-sm-12 col-lg-9">
           <div class="preview">
-            <div class="featurette-filter mx-auto">
-              <a class="btn btn-tooltip mt-2"><i class="fa fa-2x fa-filter"></i><p class="theme tooltip">Filter by Selected Categories</p></a>
-              <span class="filter" v-for="filter in selectedFields">
-                <a :id="filter.name.replace(/ /g, '-')" class="btn btn-xs btn-filter" @click="filterNews(filter)">
+            <div class="featurette-filter m-0 p-0 col-1">
+              <span class="filter" v-for="filter in results">
+                <a :id="filter.query.replace(/ /g, '-')" class="btn btn-xs btn-filter" @click="filterNews(filter)">
                   <i :class="filter.icon"></i>
-                  <p class="text-truncate">{{ filter.name }}</p>
+                  <p class="text-truncate">{{ filter.query }}</p>
                 </a>
               </span>
             </div>
-            <div class="news-container">
+            <div class="news-container m-0 p-0 col-11">
               <div :id="item.query.replace(/ /g,'-')" class="list-group" v-for="item in results">
                 <div class="news-category p-3">News related with the topic <span><h5><i :class="item.icon"></i> {{ item.query }}</h5></span></div>
                   <div class="list-group-item list-group-item-action" v-for="(i, index) in item.hits" v-if="i.visible">
