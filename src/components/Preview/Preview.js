@@ -1,5 +1,6 @@
 import store from '../../store/store.js'
 import authHelper from '../Authentication/AuthHelper.js'
+import InfiniteLoading from 'vue-infinite-loading';
 
 import Loading from '../Loading/Loading.vue'
 import Navbar from '../Navbar/Navbar.vue'
@@ -13,17 +14,14 @@ export default {
   data() {
     return {
       isLoading: true,
-      selectedFields: Store.selections,
       results: []
     }
   },
 
   created() {
-    this.fetchNews(this.selectedFields);
-  },
-
-  mounted() {
-    this.isLoading = false;
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 1000);
   },
 
   methods: {
@@ -52,7 +50,7 @@ export default {
     fetchNews(array) {
       const news = [];
       array.map(function(category) {
-        let url = `https://hn.algolia.com/api/v1/search_by_date?query=${category.name}&tags=story&hitsPerPage=100`;
+        let url = `https://hn.algolia.com/api/v1/search_by_date?query=${category.name}&tags=story&hitsPerPage=200`;
         fetch(url)
         .then((res) => { return res.json() })
         .then((res) => {
@@ -73,7 +71,7 @@ export default {
           );
         });
       });
-      this.results = news;
+      return news;
     },
     
     dateTime(item) {
@@ -91,6 +89,12 @@ export default {
   },
 
   // Navigation Guards
+  beforeRouteEnter(to, from, next) {
+    next(vm => {
+      vm.results = vm.fetchNews(Store.selections);
+    })
+  },
+
   beforeRouteLeave(to, from, next) {
     next(false);
     authHelper.flashMessage("<p>You can use <b class='fa fa-cog text-success'></b>\

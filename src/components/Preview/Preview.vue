@@ -55,6 +55,14 @@
                       </div>
                     </div>
                   </div>
+
+                  <!-- INFINITE SCROLL -->
+                  <!-- 
+                    <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">
+                      <span slot="no-more">There is no more Hacker News :(</span>
+                    </infinite-loading>
+                  -->
+
                 </div>
               </div>
             </div>
