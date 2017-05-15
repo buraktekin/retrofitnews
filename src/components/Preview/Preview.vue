@@ -55,15 +55,16 @@
                       </div>
                     </div>
                   </div>
-
-                  <!-- INFINITE SCROLL -->
-                  <!-- 
-                    <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading">
-                      <span slot="no-more">There is no more Hacker News :(</span>
-                    </infinite-loading>
-                  -->
-
                 </div>
+
+                <div>
+                  <p v-for="item in list">
+                    Line:
+                    <span v-text="item"></span>
+                  </p>
+                  <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading"></infinite-loading>
+                </div>
+               
               </div>
             </div>
           </div>
