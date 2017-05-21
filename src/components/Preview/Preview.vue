@@ -57,13 +57,13 @@
                   </div>
                 </div>
 
-                <div>
+                <!-- <div>
                   <p v-for="item in list">
                     Line:
                     <span v-text="item"></span>
                   </p>
                   <infinite-loading :on-infinite="onInfinite" ref="infiniteLoading"></infinite-loading>
-                </div>
+                </div> -->
                
               </div>
             </div>

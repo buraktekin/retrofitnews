@@ -37,61 +37,18 @@ export default {
           $(".copied").text('Copy URL').removeClass('copied');
         }, 2000);
       } catch(e) {
-        alert("Oooops! Something went wrong and URL could not be copied.\n" + e);
+        authHelper.flashMessage("Oooops! Something went wrong and URL could not be copied.\n", "danger");
       }
       document.body.removeChild(fakeurl);
     },
 
-    onInfinite() {
-
-      Store.selections.map((category) => {
-        let url = `https://hn.algolia.com/api/v1/search_by_date?query=${category.name}&tags=story`;
-        fetch(url, {
-          params: {
-            page: this.list.length / 20 + 1
-          },
-        }).then((res) => { 
-          return res.json() 
-        }).then((res) => {
-          console.log(res);
-          res.hits.map((response) => {
-            if(response.url == "" || response.url == null) {
-              response['visible'] = false;
-            } else {
-              response['visible'] = true;
-            }
-          });
-        }).then((res) => {
-          res.map((item) => {
-            this.list.push(item);
-          });
-          
-          
-          // if (res.data.hits.length) {
-          //   this.list = this.list.concat(res.data.hits);
-          //   this.$refs.infiniteLoading.$emit('$InfiniteLoading:loaded');
-          //   if (this.list.length / 20 === 10) {
-          //     this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
-          //   }
-          // } else {
-          //   this.$refs.infiniteLoading.$emit('$InfiniteLoading:complete');
-          // }
-
-
-        }).then((res) => {
-          res['id'] = category.id;
-          res['icon'] = category.icon;
-          this.results.push(res);
-        }).then(() => {
-          this.isLoading = false;
-        }).catch(function() {
-          authHelper.flashMessage(
-            "OOPS! Something bad happend and we couldn't provide you the results. Please try again.",
-            "danger"
-          );
-        });
-      });
-    },
+    // onInfinite() {
+    //   this.results.map((items) => {
+    //     for(let currentIndex = this.list.length; currentIndex < currentIndex + 20; currentIndex++){
+    //       this.list.push(items.hits[currentIndex]);
+    //     }
+    //   })
+    // },
     
     fetchNews() {
       Store.selections.map((category) => {
@@ -108,7 +65,7 @@ export default {
           });
           res['id'] = category.id;
           res['icon'] = category.icon;
-          // this.results.push(res);
+          this.results.push(res);
         }).then(() => {
           this.isLoading = false;
         }).catch(function() {
