@@ -28,51 +28,49 @@
 	        </div>
 
 	        <div class="animation content-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-6">
-		        <div class="col-5 col-sm-4 col-md-4 col-lg-3">
-		        	<div class="row align-items-center">
-		          	<div class="col-12">
-		          		<div class="icons">
-			            	<div class="vn-brand-animate">
-			            		<i class="fa fa-automobile"></i>
-				            	<i class="fa fa-camera slide"></i>
-				            	<i class="fa fa-gamepad"></i>
-			            	</div>
-			            	<div class="vn-brand-animate">
-			            		<i class="fa fa-heart"></i>
-				            	<i class="fa fa-institution"></i>
-				            	<i class="fa fa-magnet"></i>
-			            	</div>
-			            	<div class="vn-brand-animate">
-			            		<i class="fa fa-music"></i>
-				            	<i class="fa fa-language slide"></i>
-				            	<i class="fa fa-cube"></i>
-			            	</div>
-			            	<div class="vn-brand-animate">
-			            		<i class="fa fa-code slide"></i>
-				            	<i class="fa fa-fire"></i>
-				            	<i class="fa fa-globe"></i>
-			            	</div>
-			            	<div class="vn-brand-animate">
-			            		<i class="fa fa-glass"></i>
-				            	<i class="fa fa-gamepad"></i>
-				            	<i class="fa fa-database"></i>
-			            	</div>
-			            	<div class="vn-brand-animate">
-			            		<i class="fa fa-legal"></i>
-				            	<i class="fa fa-paw"></i>
-				            	<i class="fa fa-rocket slide"></i>
-			            	</div>
-			            </div>
+		        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+		        	<div class="row align-items-center text-center">
+	          		<div class="icons">
+		            	<div class="vn-brand-animate">
+		            		<i class="fa fa-automobile"></i>
+			            	<i class="fa fa-camera slide"></i>
+			            	<i class="fa fa-gamepad"></i>
+		            	</div>
+		            	<div class="vn-brand-animate">
+		            		<i class="fa fa-heart"></i>
+			            	<i class="fa fa-institution"></i>
+			            	<i class="fa fa-magnet"></i>
+		            	</div>
+		            	<div class="vn-brand-animate">
+		            		<i class="fa fa-music"></i>
+			            	<i class="fa fa-language slide"></i>
+			            	<i class="fa fa-cube"></i>
+		            	</div>
+		            	<div class="vn-brand-animate">
+		            		<i class="fa fa-code slide"></i>
+			            	<i class="fa fa-fire"></i>
+			            	<i class="fa fa-globe"></i>
+		            	</div>
+		            	<div class="vn-brand-animate">
+		            		<i class="fa fa-glass"></i>
+			            	<i class="fa fa-gamepad"></i>
+			            	<i class="fa fa-database"></i>
+		            	</div>
+		            	<div class="vn-brand-animate">
+		            		<i class="fa fa-legal"></i>
+			            	<i class="fa fa-paw"></i>
+			            	<i class="fa fa-rocket slide"></i>
+		            	</div>
 		            </div>
 		          </div>
 		        </div>
 		      
 
-		        <div class="col-4 col-sm-6 col-md-4 col-lg-3">
+		        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
 		        	<img id="picture" class="img-fluid" src="../../assets/hackernews.jpg" alt="">
 		        </div>
 
-		        <div class="col-3 col-sm-1 col-md-4 col-lg-2">
+		        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
 		        	<div class="icons">
 			        	<div class="vn-brand-animate">
 		            	<i class="fa fa-2x fa-hacker-news"></i>

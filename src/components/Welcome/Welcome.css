@@ -16,9 +16,6 @@ section {
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: url("https://static.pexels.com/photos/102720/pexels-photo-102720.jpeg") !important;
-	background-size: cover;
-	opacity: .4;
 }
 
 #welcome {
@@ -26,6 +23,7 @@ section {
 }
 
 #description{
+	color: #FFF;
 	border-right: 1px solid	rgba(0,0,0,0.1);
 }
 
@@ -57,7 +55,7 @@ section {
 
 .vn-brand-animate > i{
 	padding: 10px;
-	color: rgba(87, 59, 152, 1);
+	color: rgb(138, 99, 230);
 	font-size: 2.5vw;
 	position: relative;
 	display: table-cell;
@@ -78,6 +76,7 @@ section {
 .icons{
 	display: grid;
 	justify-content: center;
+	margin: 0 auto;
 }
 
 .copyleft {

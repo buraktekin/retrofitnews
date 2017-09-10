@@ -95,10 +95,10 @@ nav {
 }
 
 [class^="col-"] {
-  -webkit-box-flex: none;
-  -webkit-flex: none;
-  -ms-flex: none;
-  flex: none;
+  -webkit-box-flex: auto;
+  -webkit-flex: auto;
+  -ms-flex: auto;
+  flex: auto;
   display: block !important; 
   padding-left: 5px !important;
   padding-right: 5px !important;
@@ -222,9 +222,9 @@ nav {
 [class*="btn-info"] {
   font-size: 1.2vw;
   font-weight: 500;
-  border:1px solid rgba(87, 59, 152, .86) !important;
+  border: 1px solid rgba(87, 59, 152, .86) !important;
   background: transparent;
-  color: rgba(87, 59, 152, .86) !important;
+  color: rgb(138, 99, 230) !important;
 }
 
 [class*="btn-info"]:hover {
