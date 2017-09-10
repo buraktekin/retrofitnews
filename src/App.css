@@ -70,7 +70,7 @@ a.theme, a.theme:hover {
 
 a.cite, a.cite:hover {
   font-weight: 700;
-  color: rgba(116, 214, 255, 1);
+  color: #FFF; /* rgba(116, 214, 255, 1); */
 }
 
 nav {
