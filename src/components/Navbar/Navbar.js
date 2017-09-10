@@ -22,6 +22,10 @@ export default {
   },
   components: { Modal },
   methods: {
+    isActive() {
+      $('#sidebar-wrapper').toggleClass('active');
+    },
+
     getUser() {
       return authHelper.isUserLoggedIn() || { "email": "" };
     },
