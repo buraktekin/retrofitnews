@@ -85,24 +85,6 @@ export default {
         date: date[0],
         time: date[1]
       }
-    },
-    
-    filterNews(event, item) {
-      const itemFilter = item.query.replace(/ /g,'-');
-      var selector = $(`[id="${itemFilter}"]`);
-      selector.toggleClass('remove');
-      if(counter < this.results.length - 1) {
-        if(selector.hasClass('remove')) {
-          counter++;
-        } else {
-          counter--;
-        }
-      } else {
-        selector = $('span.filter > a').not('.remove');
-        selector.attr('disabled', true);
-      }
-
-      console.log(counter, this.results.length);
     }
   },
 
