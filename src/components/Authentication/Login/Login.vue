@@ -1,7 +1,7 @@
 <template>
 	<div class="vn-login mt-1">
 	  <form>
-	    <div class="form-group row">
+	    <div class="form-group mb-10">
 	      <div class="col-sm-12">
 	        <input type="email" class="form-control form-control-success" id="vn-register-email" placeholder="Email" v-model="email">
 	        <input type="password" class="form-control form-control-warning" id="vn-register-pass" placeholder="Password" v-model="password">
