@@ -1,21 +1,23 @@
 import store from '../../store/store.js'
 import authHelper from '../Authentication/AuthHelper.js'
-import InfiniteLoading from 'vue-infinite-loading';
+import InfiniteLoading from 'vue-infinite-loading'
 
 import Loading from '../Loading/Loading.vue'
 import Navbar from '../Navbar/Navbar.vue'
+import Sidebar from '../Sidebar/Sidebar.vue'
 
 let Store = store.state;
+var counter = 0;
 
 export default {
   name: "Preview",
-  components: { Loading, Navbar, InfiniteLoading },
+  components: { Loading, Navbar, InfiniteLoading, Sidebar },
 
   data() {
     return {
       isLoading: true,
       results: [],
-      list: []
+      list: [],
     }
   },
 
@@ -52,7 +54,7 @@ export default {
     
     fetchNews() {
       Store.selections.map((category) => {
-        let url = `https://hn.algolia.com/api/v1/search_by_date?query=${category.name}&tags=story&hitsPerPage=200`;
+        let url = `https://hn.algolia.com/api/v1/search_by_date?query=${category.name}&tags=story&hitsPerPage=50`;
         fetch(url)
         .then((res) => { return res.json() })
         .then((res) => {
@@ -85,9 +87,22 @@ export default {
       }
     },
     
-    filterNews(item) {
+    filterNews(event, item) {
       const itemFilter = item.query.replace(/ /g,'-');
-      $(`[id="${itemFilter}"]`).toggleClass('remove');
+      var selector = $(`[id="${itemFilter}"]`);
+      selector.toggleClass('remove');
+      if(counter < this.results.length - 1) {
+        if(selector.hasClass('remove')) {
+          counter++;
+        } else {
+          counter--;
+        }
+      } else {
+        selector = $('span.filter > a').not('.remove');
+        selector.attr('disabled', true);
+      }
+
+      console.log(counter, this.results.length);
     }
   },
 

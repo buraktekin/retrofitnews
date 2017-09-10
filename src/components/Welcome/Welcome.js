@@ -8,9 +8,9 @@ export default {
 			$(".slide").each(function() {
 				var randomTime = Math.floor(Math.random() * (maxT - minT + 1)) + minT;
 				var offsetAnimatedObject = $(this).offset();
-				var distanceX = offset.left - offsetAnimatedObject.left + $(this).width();
+				var distanceX = offset.left - offsetAnimatedObject.left - 30 + $(this).width();
 				var distanceY = offset.top - offsetAnimatedObject.top - $(this).height() / 2;
-				$(this).animate({ left: distanceX, top: distanceY, opacity: 0 }, randomTime);
+				$(this).animate({ left: distanceX, top: distanceY, opacity: 0}, randomTime);
 			});
 			$(".fa-hacker-news").each(function() {
 				$(this).delay(2500).animate({ left: 0, opacity: 1 }, 2000);
