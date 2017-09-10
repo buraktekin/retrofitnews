@@ -1,8 +1,12 @@
 section {
 	display: flex;
-  height: 100vh;
 	justify-content: center;
 	align-items: center;
+	-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height:100%;
+  padding: 0 20px;
 }
 
 #welcome::before{
@@ -25,6 +29,16 @@ section {
 	border-right: 1px solid	rgba(0,0,0,0.1);
 }
 
+.animation {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.masthead {
+	position: fixed;
+}
+
 .masthead > .overlay {
 	padding: 2rem;
 	width: 100vw;
@@ -37,11 +51,16 @@ section {
 	height: 100%;
 }
 
+.animation > div.vn-brand-animate {
+	display: inline-table;
+}
+
 .vn-brand-animate > i{
 	padding: 10px;
 	color: rgba(87, 59, 152, 1);
-	font-size: 1.5rem;
+	font-size: 2.5vw;
 	position: relative;
+	display: table-cell;
 }
 
 .vn-brand-animate > .slide{
@@ -61,13 +80,30 @@ section {
 	justify-content: center;
 }
 
-@media only screen and (min-width: 993px) {
-	div.icons {
-		padding: 5rem !important;
-	}
+.copyleft {
+  display:inline-block;
+  transform: rotate(180deg);
+  font-size: 1.2vw;
 }
 
-@media only screen and (min-width: 320px) and (max-width: 992px)  {
+footer {
+	color: rgb(255, 255, 255);
+	padding: 5px;
+  background: rgba(61, 51, 81, 0.9);
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+
+footer p, footer span {
+	font-size: 1.2vw !important;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 1023px)  {
+	header.masthead > .overlay {
+		padding: .8rem;
+		height: 12vh;
+	}
 	div.icons {
 		padding: 1rem;
 	}
@@ -77,10 +113,19 @@ section {
 		margin-bottom: 10px;
 		padding-bottom: 20px;
 	}
-	.vn-brand-animate {
-		font-size: 1.2rem;
+	#description > div {
+		padding-top: 3px !important; 
+		margin: 0;
 	}
-	footer {
-		position: relative;
+	.vn-brand-animate {
+		font-size: small;
+		display: inline-table;
+	}
+	.vn-brand-animate > i {
+		padding: 6px;
+		font-size: medium;
+	}
+	footer p, footer span {
+		font-size: medium!important;
 	}
 }

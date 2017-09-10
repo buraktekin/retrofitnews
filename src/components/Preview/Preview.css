@@ -1,27 +1,9 @@
-#preview {
-  background: url(https://static.pexels.com/photos/94363/pexels-photo-94363.jpeg) !important;
-  background-size: cover !important;
-  background-repeat: no-repeat;
-}
-
-#preview::before {
-  left: 0;
-  top: 0;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  content: ' ';
-  background: rgba(0,0,0,0.6) !important;
-}
-
 .preview {
   width: 100%;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  height: 100%;
+  overflow: hidden;
   color: #FFF !important;
   /*box-shadow: 1px 1px 30px rgba(0, 0, 0, 0.8);*/
-  background-color: rgba(0, 0, 0, 0);
 }
 
 .news-container > .list-group.remove{
@@ -29,26 +11,39 @@
 }
 
 .list-group {
-  box-shadow: 0px 0px 40px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.5);
+  background: -moz-linear-gradient(45deg, rgba(255,255,255, .1) 10%, rgba(255,255,255,.6) 80%, rgba(255,255,255,.4) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(255,255,255, .1) 10%, rgba(255,255,255,.6) 80%, rgba(255,255,255,.4) 100%);
+  background: linear-gradient(45deg, rgba(255,255,255, .1) 10%, rgba(255,255,255,.6) 80%, rgba(255,255,255,.4) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff', GradientType=1); /* IE6-9 fallback on horizontal gradient */
 }
 
 .list-group-item {
+  border: none;
+  margin: 0;
+  color: #fff;
   z-index: 1;
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(111, 120, 170, 0.5);
+  background-color: rgba(8, 8, 8, 0.75);
 }
 
 .news-category {
-  background-color: rgba(45, 38, 78, 0.8);
-  border: 1px solid rgba(46, 40, 84, 1);
+  background-color: rgba(0, 0, 0, 0.88);
+  border: none;
 }
 
 .news-container {
   width: 100%;
+  height: 80vh;
+  overflow-y: scroll;
   text-align: left;
 }
 
 .news-header {
+  width: 100%;
+}
+
+.news-header {
+  font-size: small;
   width: 100%;
 }
 
@@ -61,6 +56,7 @@
 }
 
 .news-footer a{
+  font-size: medium;
   top: 50%;
   transform: translateY(-50%);
   right: 5px;
@@ -89,9 +85,9 @@
 
 .btn-filter {
   cursor: crosshair;
-  margin: 3px;
-  padding: 10px 3px;
-  width: 60px;
+  margin: 3px auto;
+  padding: 10px 0;
+  width: 100%;
   color: #fff;
   background-color: rgba(24, 239, 194, 0.37);
 }
@@ -109,6 +105,10 @@
 .featurette-container {
   position: absolute;
   top: 30%;
+}
+
+.vn-featurette-footer {
+  display: none;
 }
 
 .featurette-filter {
@@ -132,4 +132,19 @@ p.urls {
 
 span.filter > a.remove {
   background: rgba(247, 46, 46, 0.78) !important;
+}
+
+@media only screen and (min-width: 1024px)  {
+  .news-container {
+    height: 100vh;
+  }
+}
+
+@media only screen and (max-width: 767px)  {
+  #preview > div > div > div > div.featurette-filter {
+    display: none !important;
+  }
+  span.filter > a > p.text-truncate {
+    display: none;
+  }
 }
