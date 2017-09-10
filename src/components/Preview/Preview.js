@@ -1,6 +1,7 @@
 import store from '../../store/store.js'
 import authHelper from '../Authentication/AuthHelper.js'
 import InfiniteLoading from 'vue-infinite-loading'
+import FilterNews from '../../modules/filter.js'
 
 import Loading from '../Loading/Loading.vue'
 import Navbar from '../Navbar/Navbar.vue'
@@ -85,7 +86,11 @@ export default {
         date: date[0],
         time: date[1]
       }
-    }
+    },
+    
+    filterNews(event, item) {
+      FilterNews.filterNews(event, item, this.results);
+    },
   },
 
   // Navigation Guards
