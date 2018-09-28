@@ -22,18 +22,14 @@
 
 .vn-authentication {
 	z-index: 2;
-	color: #FFF;
-	max-width: 640px;
-	min-width: 300px;
-	max-height: 60%;
-	padding: 35px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	background: rgba(24, 18, 35, 0.7);
-	box-shadow: 0px 0px 10px rgba(153, 82, 197, 0.8);
-	transition: .7s all ease-in-out;
+    color: #FFF;
+    max-width: 640px;
+    min-width: 300px;
+    max-height: 60%;
+    background: rgba(24, 18, 35, 0.7);
+    box-shadow: 0px 0px 10px rgba(153, 82, 197, 0.8);
+    transition: .7s all ease-in-out;
+    padding: 15px;
 }
 
 .vn-authentication:hover {

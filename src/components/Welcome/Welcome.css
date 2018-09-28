@@ -3,17 +3,19 @@ section {
 	justify-content: center;
 	align-items: center;
 	-webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  padding: 0 20px;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0 20px;
 }
 
 #welcome {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	height: 100%;
+	display: grid;
+    grid-template-rows: repeat(3, auto);
+}
+
+#hero {
+	align-self: center;
 }
 
 #description{
@@ -21,27 +23,25 @@ section {
 	border-right: 1px solid	rgba(0,0,0,0.1);
 }
 
+#description h1 {
+	font-size: 2rem;
+}
+
 .animation {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .masthead {
-	position: fixed !important;
-	top: 0;
-}
-
-.masthead > .overlay {
-	padding: 2rem;
-	width: 100vw;
-	height: 20vh;
+	align-self: center;
 	text-align: center;
-	background: rgba(46, 36, 70, .9);
 }
 
-.masthead > .overlay img{
-	height: 100%;
+.masthead > img{
+	position: relative;
+	width: 200px;
 }
 
 .animation > div.vn-brand-animate {
@@ -50,7 +50,7 @@ section {
 
 .vn-brand-animate > i{
 	padding: 10px;
-	color: rgb(138, 99, 230);
+	color: rgb(111, 239, 255);
 	font-size: 2.5vw;
 	position: relative;
 	display: table-cell;
@@ -75,22 +75,23 @@ section {
 }
 
 .copyleft {
-  display:inline-block;
-  transform: rotate(180deg);
-  font-size: 1.2vw;
+	display:inline-block;
+	transform: rotate(180deg);
+	font-size: 1rem;
 }
 
 footer {
-	color: rgb(255, 255, 255);
 	padding: 5px;
-  background: rgba(61, 51, 81, 0.9);
-  bottom: 0;
-  position: fixed;
-  width: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	width: 100%;
+	align-self: flex-end;
 }
 
-footer p, footer span {
-	font-size: 1.2vw !important;
+.bottom > p, 
+.bottom > span {
+	position: relative;
+	color: #FFF !important;
+	font-size: .8rem !important;
 }
 
 @media only screen and (min-width: 767px)  {
@@ -100,11 +101,6 @@ footer p, footer span {
 }
 
 @media only screen and (max-width: 1023px)  {
-	
-	header.masthead > .overlay {
-		padding: .8rem;
-		height: 12vh;
-	}
 	div.icons {
 		padding: 1rem;
 	}

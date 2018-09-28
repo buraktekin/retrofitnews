@@ -4,6 +4,9 @@
   background: url(https://static.pexels.com/photos/355770/pexels-photo-355770.jpeg) !important;
   background-size: cover !important;
   background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 #app::before {
@@ -13,12 +16,11 @@
   width: 100%;
   height: 100%;
   content: ' ';
-  background: -moz-linear-gradient(45deg, rgba(0,0,0,.4) 10%, rgba(0,0,0,.7) 30%, rgba(0,0,0,1) 100%);
-  background: -webkit-linear-gradient(45deg, rgba(0,0,0,.4) 10%, rgba(0,0,0,.7) 30%, rgba(0,0,0,1) 100%);
-  background: linear-gradient(0deg, rgba(0,0,0,.4) 10%, rgba(0,0,0,.7) 30%, rgba(0,0,0,1) 100%);
+  background: -moz-linear-gradient(45deg, rgba(0,0,0,.4) 10%, rgba(0,0,0,.2) 30%, rgba(0,0,0,1) 100%);
+  background: -webkit-linear-gradient(45deg, rgba(0,0,0,.4) 10%, rgba(0,0,0,.2) 30%, rgba(0,0,0,1) 100%);
+  background: linear-gradient(0deg, rgba(0,0,0,.4) 10%, rgba(0,0,0,.2) 30%, rgba(0,0,0,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='rgba(0,0,0,.4)', GradientType=1); /* IE6-9 fallback on horizontal gradient */
 }
-
 
 html, body{
   width: 100%;
@@ -64,7 +66,7 @@ a.theme, a.theme:hover {
   text-decoration: none !important;
   outline: none;
   cursor: pointer;
-  color: rgb(35, 144, 122) !important;
+  color: rgb(106, 214, 195) !important;
   text-shadow: none;
 }
 
@@ -82,12 +84,6 @@ nav {
 
 .row {
   margin: 0 auto;
-}
-
-#app {
-  width: 100%;
-  height: 100vh;
-  text-align: center;
 }
 
 [class^="col-"] {
@@ -137,7 +133,7 @@ nav {
 }
 
 .text-theme{
-  color: rgba(78, 88, 177, 0.53);
+  color: #2ea78d;
 }
 
 .navbar-light .navbar-text {
@@ -170,8 +166,9 @@ nav {
 
 /* BUTTONS */
 [class*="btn-"] {
-  font-size: 1.2vw;
-  font-weight: 500;
+  cursor: pointer;
+  font-size: 1rem !important;
+  font-weight: 700;
 }
 
 [class*="btn-warning"] {
@@ -181,8 +178,8 @@ nav {
 }
 
 [class*="btn-warning"]:hover {
- background-color: rgba(255, 142, 2, 0.86) !important; 
- color: #FFF !important;
+  background-color: rgba(255, 142, 2, 0.86) !important; 
+  color: #FFF !important;
 }
 
 [class*="btn-danger"] {
@@ -192,8 +189,8 @@ nav {
 }
 
 [class*="btn-danger"]:hover {
- background-color: rgba(255, 19, 19, 0.86) !important; 
- color: #FFF !important;
+  background-color: rgba(255, 19, 19, 0.86) !important; 
+  color: #FFF !important;
 }
 
 [class*="btn-success"] {
@@ -203,33 +200,34 @@ nav {
 }
 
 [class*="btn-success"]:hover {
- background-color: rgba(25, 150, 104, 0.86) !important; 
- color: #FFF !important;
+  background-color: rgba(25, 150, 104, 0.86) !important; 
+  color: #FFF !important;
 }
 
 [class*="btn-info"] {
   font-size: 1.2vw;
   font-weight: 500;
-  border: 1px solid rgba(87, 59, 152, .86) !important;
-  background: transparent;
-  color: rgb(138, 99, 230) !important;
+  background: rgba(0,0,0,.6);
+  color: rgb(175, 239, 255) !important;
+  border: none;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
 }
 
 [class*="btn-info"]:hover {
- background-color: rgba(87, 59, 152, 1) !important; 
- color: #FFF !important;
+  background-color: rgb(183, 239, 252) !important;
+  color: #353535 !important;
 }
 
 .btn-theme {
   font-family: 'Arvo', serif;
   width: 100%;
   padding: 7px;
-  color: rgb(35, 144, 122);
   background-color: transparent; /*rgba(0, 0, 0, 0.88);*/
   border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 0;
   outline: none;
   cursor: pointer;
+  color: #FFF;
 }
 
 .btn-theme:focus, .btn-transparent:focus, .btn-tooltip {
@@ -360,5 +358,11 @@ nav {
   .navbar-brand img {
     top: 0;
     width: auto;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .btn-theme {
+    color: #000;
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div id="preview">
     <loading :loader="isLoading"></loading>
-    <div class="row" v-if="!isLoading">
+    <div class="row preview-wrapper" v-if="!isLoading">
       <div class="p-0 col-xs-12 col-sm-12 col-lg-3">
         <div class="featurette">
           <div class="featurette-heading"><navbar></navbar></div>
@@ -31,7 +31,7 @@
             </span>
           </div>
           <sidebar :results="results"></sidebar>
-          <div class="news-container m-0 p-0 col-xs-12 col-sm-12 col-md-11 col-lg-11">
+          <div class="news-container m-0 p-0 col-xs-12 col-sm-12 col-md-12 col-lg-11">
             <div :id="item.query.replace(/ /g,'-')" class="list-group" v-for="item in results">
               <div class="news-category p-3">News related with the topic <span><h5><i :class="item.icon"></i> {{ item.query }}</h5></span></div>
                 <div class="list-group-item list-group-item-action" v-for="(i, index) in item.hits" v-if="i.visible">
