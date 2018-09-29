@@ -110,21 +110,18 @@
   opacity: 0
 }
 div.done{
-  z-index: 20;
   width: 100%;
   min-height: 50px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: relative;
   transition: 1s all ease-in-out;
 }
 div.done > a {
   margin: 0;
-  width: 95%;
-  height: 4rem;
-  line-height: 3;  
+  width: 100%;
+  height: 3rem;
+  line-height: 2;
   border-radius: 5px;
-  background: rgba(8, 134, 107, 0.7);
+  background: rgba(8, 134, 107, .98);
   color: #FFF !important;
 }
 div.done > a:hover {
@@ -133,38 +130,12 @@ div.done > a:hover {
 }
 
 @media screen and (max-width : 575px) {
-  .field-wrapper {
-    grid-gap: 20px;
-  }
-  .featurette-message {
-    transform: translateY(0%);
-  }
-
   .featurette-message h4 {
     font-size: .6rem;
   }
   
   .featurette-message h2 {
     font-size: .8rem;
-  }
-}
-
-@media screen and (min-width : 576px) and (max-width : 767px) {
-  .field-wrapper {
-    grid-gap: 40px;
-  }
-  .featurette-message {
-    transform: translateY(10%);
-  }
-  
-  .featurette-message h2 {
-    font-size: 1rem;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width : 991px) {
-  .featurette-message h2 {
-    font-size: 1.5rem;
   }
 }
 
@@ -225,9 +196,10 @@ div.done > a:hover {
     right: 0px;
   }
   .field-wrapper {
+    height: 100vh;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 30vh 70vh;
+    grid-template-rows: repeat(3, auto);
   }
   .card-fields {
     margin: 5px;
@@ -237,6 +209,7 @@ div.done > a:hover {
   .fields {
     margin: 0 !important;
     padding: 0 !important;
+    height: 90%;
   }
   .featurette {
     height: 100%;
@@ -246,7 +219,7 @@ div.done > a:hover {
   .featurette-message {
     font-size: .5rem;
     top: 0;
-    padding: 20px;
+    padding: 5px;
   }
   .featurette-message h1 {
     font-size: 1.5rem;

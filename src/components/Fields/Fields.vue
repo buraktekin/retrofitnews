@@ -1,14 +1,15 @@
 <template>
   <div id="fields">
     <loading :loader="isLoading"></loading>
-    <div class="container" v-if="!isLoading">
+    <div class="content" v-if="!isLoading">
       <div class="row">
         <div class="field-wrapper">
           <div class="featurette">
             <navbar></navbar>
             <div class="featurette-message">
               <h2 class="text-theme"><b>Please, indicate your interests</b></h2>
-              <h4 class="theme">You might change your selections later.</h4>
+              <h4 class="theme">(You might change your selections later.)</h4>
+              <hr/>
             </div>
             <div class="featurette-footer">
               <p>
@@ -19,9 +20,6 @@
           </div>
 
           <div class="transitive">
-            <div class="done" v-if="selectedFields.length > 0">
-              <a class="btn btn-default btn-md btn-done" @click="submitSelection">Ready!</a>
-            </div>
             <div class="fields">
               <div class="row">
                 <div class="col-6 col-sm-12 col-md-4 col-lg-3 col-xl-2" v-for="(field, index) in fields">
@@ -34,6 +32,10 @@
                 </div>
               </div>
             </div>
+          </div>
+
+          <div class="done" v-if="selectedFields.length > 0">
+            <a class="btn btn-default btn-md btn-done" @click="submitSelection">Ready!</a>
           </div>
         </div>
       </div>
